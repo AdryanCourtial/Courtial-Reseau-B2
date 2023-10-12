@@ -110,3 +110,27 @@ le nombre d'adresses IP disponibles dans ce réseau :
     4,094 Usable
 ```
 
+déterminer le hostname de votre PC :
+
+```
+PS C:\Users\happy cash> hostname
+Adryx-LAPTOP
+```
+
+l'adresse IP de la passerelle du réseau :
+```
+PS C:\Users\happy cash> ipconfig
+[...]
+
+Carte réseau sans fil Wi-Fi :
+
+   Suffixe DNS propre à la connexion. . . :
+   Adresse IPv6. . . . . . . . . . . . . .: 2a04:cec0:1130:fee8:c389:9875:1c07:ed1
+   Adresse IPv6 temporaire . . . . . . . .: 2a04:cec0:1130:fee8:a468:c8e7:d69c:d0f2
+   Adresse IPv6 de liaison locale. . . . .: fe80::bfb6:af78:1751:6490%11
+   Adresse IPv4. . . . . . . . . . . . . .: 172.20.10.2
+   Masque de sous-réseau. . . . . . . . . : 255.255.255.240
+   Passerelle par défaut. . . . . . . . . : fe80::3853:9cff:fecb:f64%11 <================== Ici
+                                       172.20.10.1 =====================ici
+[...]
+```
