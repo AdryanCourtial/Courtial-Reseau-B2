@@ -91,3 +91,22 @@ Carte réseau sans fil Wi-Fi :
 
 [...]
 ```
+
+l'adresse de réseau du LAN auquel vous êtes connectés en WiFi:
+
+```
+    10.33.64.0
+```
+
+l'adresse de broadcast :
+
+```
+    10.33.79.255
+```
+
+le nombre d'adresses IP disponibles dans ce réseau : 
+
+```
+    4,094 Usable
+```
+
