@@ -134,3 +134,17 @@ Carte réseau sans fil Wi-Fi :
                                        172.20.10.1 =====================ici
 [...]
 ```
+```
+PS C:\Users\happy cash> arp -a
+[...]
+Interface : 172.20.10.2 --- 0xb
+  Adresse Internet      Adresse physique      Type
+  172.20.10.1           3a-53-9c-cb-0f-64     dynamique <====== ici
+  172.20.10.15          ff-ff-ff-ff-ff-ff     statique
+  224.0.0.22            01-00-5e-00-00-16     statique
+  224.0.0.251           01-00-5e-00-00-fb     statique
+  224.0.0.252           01-00-5e-00-00-fc     statique
+  239.255.255.250       01-00-5e-7f-ff-fa     statique
+  255.255.255.255       ff-ff-ff-ff-ff-ff     statique
+  [...]
+```
