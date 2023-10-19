@@ -313,7 +313,11 @@ III. Le requin
 
 capturez un échange ARP entre votre PC et la passerelle du réseau : [arp.pcap](./img/arp.pcap)
 
+capturez une requête DNS vers le domaine de votre choix et la réponse,
+vous effectuerez la requête DNS en ligne de commande : [dns.pcap](./img/dns.pcapng)
 
+
+effectuez une connexion qui sollicite le protocole TCP : [tcp.pcap](./img/tcp.pcapng)
 
 
 
