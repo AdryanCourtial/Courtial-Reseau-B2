@@ -24,12 +24,12 @@ while True:
     try:
         # On reçoit 1024 bytes de données
         data = conn.recv(1024)
-        
+
         # On affiche dans le terminal les données reçues du client
         print(f"Données reçues du client : {data}")
 
         # On répond au client un truc
-        conn.sendall("Hi mate !")
+        conn.sendall(b'Hi mate !')
 
     except socket.error:
         print("Error Occured.")
