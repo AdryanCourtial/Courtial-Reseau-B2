@@ -31,6 +31,13 @@ while True:
 
         # On répond au client un truc
         conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        conn.sendall(b'Hi mate !')
+        
 
     except socket.error:
         print("Error Occured.")

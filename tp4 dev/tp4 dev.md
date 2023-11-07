@@ -41,93 +41,33 @@ Resolving deltas: 100% (14/14), done.
 Courtial-Reseau-B2
 [...]
 [baptiste@Server tp4 dev]$ python bs_server_I1.py
-Connected by ('10.1.1.12', 45100)
+Connected by ('10.1.1.12', 46018)
 Données reçues du client : b'Meooooo !'
 Données reçues du client : b''
 Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
-Données reçues du client : b''
 Error Occured.
+[baptiste@Server tp4 dev]$
 [...]
 [baptiste@Server ~]$ ss -tal  | grep 13337
 LISTEN 0      1          10.1.1.11:13337      0.0.0.0:*
 [baptiste@Server ~]$
+```
 
+🌞 Commandes CLIENT ...
 
+```
+[baptiste@Client ~]$ git clone https://github.com/AdryanCourtial/Courtial-Reseau-B2
+Cloning into 'Courtial-Reseau-B2'...
+remote: Enumerating objects: 71, done.
+remote: Counting objects: 100% (71/71), done.
+remote: Compressing objects: 100% (53/53), done.
+remote: Total 71 (delta 14), reused 66 (delta 9), pack-reused 0
+Receiving objects: 100% (71/71), 18.02 KiB | 971.00 KiB/s, done.
+Resolving deltas: 100% (14/14), done.
+[baptiste@Client ~]$ cd Courtial-B2/-Reseau
+[...]
+[baptiste@Client tp4 dev]$ python bs_client_I1.py
+Le serveur a répondu b'Hi mate !'
+[baptiste@Client tp4 dev]$
 ```
 
