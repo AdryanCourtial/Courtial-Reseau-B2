@@ -24,7 +24,7 @@ while True:
 
     try:
         # On reçoit 1024 bytes de données
-        data = conn.recv(512)
+        data = conn.recv(1024)
 
         # On affiche dans le terminal les données reçues du client
         print(f"Données reçues du client : {data}")
