@@ -12,7 +12,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
 
 # Place le programme en mode écoute derrière le port auquel il s'est bind
-s.listen(1) # 1 = Le Nombre de connexion Accpeter
+s.listen(13) # 1 = Le Nombre de connexion Accpeter
 # On définit l'action à faire quand quelqu'un se connecte : on accepte
 conn, addr = s.accept()
 # Dès que quelqu'un se connecte, on affiche un message qui contient son adresse
@@ -37,7 +37,7 @@ while True:
         conn.sendall(b'Hi mate !')
         conn.sendall(b'Hi mate !')
         conn.sendall(b'Hi mate !')
-        
+
 
     except socket.error:
         print("Error Occured.")
