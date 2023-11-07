@@ -288,3 +288,17 @@ default via 10.1.1.254 dev enp0s3 proto dhcp src 10.1.1.100 metric 100
 [baptiste@node1 ~]$
 ```
 
+```
+[baptiste@node1 ~]$ ping 10.1.2.11
+PING 10.1.2.11 (10.1.2.11) 56(84) bytes of data.
+64 bytes from 10.1.2.11: icmp_seq=1 ttl=63 time=1.54 ms
+64 bytes from 10.1.2.11: icmp_seq=2 ttl=63 time=1.59 ms
+64 bytes from 10.1.2.11: icmp_seq=3 ttl=63 time=1.41 ms
+^C
+--- 10.1.2.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+rtt min/avg/max/mdev = 1.411/1.512/1.592/0.075 ms
+[baptiste@node1 ~]$
+```
+
+
