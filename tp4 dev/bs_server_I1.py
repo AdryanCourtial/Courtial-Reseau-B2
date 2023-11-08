@@ -33,10 +33,6 @@ while True:
         conn.sendall(b'Hi mate !')
         conn.sendall(b'Hi mate !')
         conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
 
 
     except socket.error:
