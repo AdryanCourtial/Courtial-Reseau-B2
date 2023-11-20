@@ -71,3 +71,13 @@ Le serveur a répondu b'Hi mate !'
 [baptiste@Client tp4 dev]$
 ```
 
+
+Faire un SS sur le server
+```
+[baptiste@Server ~]$ ss -at | grep 13337
+LISTEN 0      13         10.1.1.11:13337      0.0.0.0:*
+[baptiste@Server ~]$
+```
+
+
+
