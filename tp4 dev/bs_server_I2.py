@@ -2,7 +2,7 @@ import socket
 import sys
 
 host = '10.1.1.11' # string vide signifie, dans ce conetxte, toutes les IPs de la machine
-port = 13337  # port choisi arbitrairement
+port = 13336  # port choisi arbitrairement
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
