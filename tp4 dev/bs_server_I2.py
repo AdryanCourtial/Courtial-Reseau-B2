@@ -24,7 +24,7 @@ while True:
 
         # On affiche dans le terminal les données reçues du client
         if 'meo' in data:
-            conn.sendall('Meo à toi confrère.')
+            print("Meo à toi confrère.")
 
 
         if 'waf' in data:
