@@ -21,8 +21,8 @@ while True:
     try:
         # On reçoit 1024 bytes de données
         data = conn.recv(64)
-        data = str(data)
         print(data)
+        data = str(data)
 
         # On affiche dans le terminal les données reçues du client
         if 'meo' in data:
