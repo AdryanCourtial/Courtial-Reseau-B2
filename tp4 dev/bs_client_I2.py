@@ -13,6 +13,7 @@ try :
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     time.sleep(2)
     answer = input("Que veux-tu envoyer au serveur ?")
+    print(answer)
     s.sendall(b"hi")
 
 except Exception as e:
