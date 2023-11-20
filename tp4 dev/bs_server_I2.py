@@ -22,14 +22,12 @@ while True:
         data = conn.recv(512)
 
         # On affiche dans le terminal les données reçues du client
-        if data.find("meo") != -1:
+        if 'meo' in data:
             print("Meo à toi confrère.")
 
-        if data.find("waf") != -1:
-            print("ptdr t ki")
 
-        if data.find("waf") == -1 and data.find("meo") == -1 :
-            print("Mes respects humble humain.")
+        if 'was' in data:
+            print("ptdr t ki")
 
         # On répond au client un truc
         conn.sendall(b'Hi mate !')
