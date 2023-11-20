@@ -20,19 +20,16 @@ while True:
     try:
         # On reçoit 1024 bytes de données
         data = conn.recv(512)
+        data = str(data)
 
         # On affiche dans le terminal les données reçues du client
         if 'meo' in data:
-            print("Meo à toi confrère.")
+            conn.sendall('Meo à toi confrère.')
 
 
-        if 'was' in data:
-            print("ptdr t ki")
+        if 'waf' in data:
+            conn.sendall('ptdr t ki')
 
-        # On répond au client un truc
-        conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
-        conn.sendall(b'Hi mate !')
 
 
     except socket.error:
