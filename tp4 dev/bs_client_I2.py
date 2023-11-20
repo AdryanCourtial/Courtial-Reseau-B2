@@ -1,5 +1,4 @@
 import socket
-import sys
 import time
 
 host = '10.1.1.11'  # IP du serveur
