@@ -6,7 +6,7 @@ port = 13336  # port choisi arbitrairement
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
-s.listen(1) # 1 = Le Nombre de connexion Accpeter
+s.listen(5) # 1 = Le Nombre de connexion Accpeter
 
 
 
