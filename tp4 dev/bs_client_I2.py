@@ -14,8 +14,9 @@ try :
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     time.sleep(2)
     answer = input("Que veux-tu envoyer au serveur ?")
-    print(bytes(answer, 'utf-8'))
-    s.sendall(answer)
+    s.send(answer.encode())
+    
+    response = s.recv(1024).decode()
 
 except Exception as e:
     print(f"{e}")
