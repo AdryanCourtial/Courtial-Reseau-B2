@@ -17,6 +17,7 @@ try :
     s.send(answer.encode())
     
     data = s.recv(512)
+    print(data)
 
 except Exception as e:
     print(f"{e}")
