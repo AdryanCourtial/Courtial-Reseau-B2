@@ -21,8 +21,8 @@ while True:
     try:
         # On reçoit 1024 bytes de données
         data = conn.recv(1024)
+        data = data.decode()
         print(f"Données reçues du client : {data}")
-        data = str(data)
 
         # On affiche dans le terminal les données reçues du client
         if 'meo' in data:

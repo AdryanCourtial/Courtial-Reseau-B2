@@ -15,7 +15,7 @@ try :
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     time.sleep(2)
 
-    answer = input("Que veux-tu envoyer au serveur ? \n")
+    answer = input("Que veux-tu envoyer au serveur ? ")
 
     p = re.compile('meo|waf')
     if type(answer) is not str:
@@ -25,6 +25,7 @@ try :
     else:
         s.send(answer.encode())
         data = s.recv(512)
+        data = data.decode()
         print(data)
 
 except Exception as e:
