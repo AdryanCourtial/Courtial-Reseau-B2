@@ -32,6 +32,9 @@ while True:
         if 'waf' in data:
             conn.sendall('ptdr t ki')
 
+        conn.close()
+        sys.exit()
+
 
 
     except socket.error:
