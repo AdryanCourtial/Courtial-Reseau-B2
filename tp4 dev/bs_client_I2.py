@@ -16,7 +16,7 @@ try :
     answer = input("Que veux-tu envoyer au serveur ?")
     s.send(answer.encode())
     
-    response = s.recv(1024).decode()
+    data = s.recv(512)
 
 except Exception as e:
     print(f"{e}")

@@ -27,14 +27,13 @@ while True:
         # On affiche dans le terminal les données reçues du client
         if 'meo' in data:
             conn.sendall("Meo à toi confrère.")
-
-
-        if 'waf' in data:
+        elif 'waf' in data:
             conn.sendall('ptdr t ki')
+        else :
+            conn.sendall('Mes respects humble humain.')
 
         conn.close()
         sys.exit()
-
 
 
     except socket.error:
