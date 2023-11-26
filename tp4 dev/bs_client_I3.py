@@ -22,8 +22,9 @@ try :
         raise TypeError("Ecrit une une phrase !")
     elif p.match(answer == None):
         raise TypeError("Tu n'est pas le bienvenue Ici.")
+    else:
+        s.send(answer.encode())
 
-    s.send(answer.encode())
     
     data = s.recv(512)
     print(data)
