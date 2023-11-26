@@ -15,7 +15,7 @@ try :
     time.sleep(2)
     answer = input("Que veux-tu envoyer au serveur ?")
     print(answer)
-    s.sendall(b"hi")
+    s.sendall(answer)
 
 except Exception as e:
     print(f"{e}")
