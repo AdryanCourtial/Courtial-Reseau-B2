@@ -19,9 +19,9 @@ try :
 
     p = re.compile("meo|waf")
     if type(answer) is not str:
-        raise TypeError("Ecrit une une phrase !")
+        raise TypeError(b"Ecrit une une phrase !")
     elif p.match(answer == None):
-        raise TypeError("Tu n'est pas le bienvenue Ici.")
+        raise TypeError(b"Tu n'est pas le bienvenue Ici.")
     else:
         s.send(answer.encode())
 
