@@ -22,6 +22,6 @@ data = s.recv(512)
 # On libère le socket TCP
 
 # Affichage de la réponse reçue du serveur
-print(f"Le serveur a répondu {repr(data)}")
+ 
 
 sys.exit()

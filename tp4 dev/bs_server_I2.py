@@ -20,7 +20,7 @@ while True:
 
     try:
         # On reçoit 1024 bytes de données
-        data = conn.recv(5)
+        data = conn.recv(64)
         print(data)
         data = str(data)
 
