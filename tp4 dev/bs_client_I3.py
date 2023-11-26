@@ -17,18 +17,15 @@ try :
 
     answer = input("Que veux-tu envoyer au serveur ?")
 
-    # p = re.compile("meo|waf")
-    # if type(answer) is not str:
-    #     raise TypeError(b"Ecrit une une phrase !")
-    # elif p.match(answer == None):
-    #     raise TypeError(b"Tu n'es pas le bienvenue Ici.")
-    # else:
-    
-    s.send(answer.encode())
-
-    
-    data = s.recv(512)
-    print(data)
+    p = re.compile("meo|waf")
+    if type(answer) is not str:
+        raise TypeError(b"Ecrit une une phrase !")
+    elif p.match(answer == None):
+        raise TypeError(b"Tu n'es pas le bienvenue Ici.")
+    else:
+        s.send(answer.encode())
+        data = s.recv(512)
+        print(data)
 
 except Exception as e:
     print(f"{e}")
