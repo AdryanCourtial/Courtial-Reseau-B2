@@ -12,10 +12,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--port", action="store",type=int, default=13337)
 args = parser.parse_args()
 
-if args.port < 0 and args.port > 65535:
+if args.port < 0 or args.port > 65535:
     print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
     sys.exit(1) 
-elif args.port > 1024 and args.port < 0:
+elif args.port > 0 and args.port < 1024:
     print("ERROR Le port spécifié est un port privilégié. Spécifiez un port au dessus de 1024.")
     sys.exit(2)
 else:
