@@ -3,7 +3,7 @@ import sys
 import time
 
 host = '10.1.1.11' # IP du serveur
-port = 13336       # Port choisir par le serveur
+port = 13337       # Port choisir par le serveur
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
