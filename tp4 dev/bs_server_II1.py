@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--port", action="store", default=13337)
 args = parser.parse_args()
 
-if args.port is not str:
+if args.port is not int:
     raise TypeError
 elif args.port < 0 and args.port > 65535:
     print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
