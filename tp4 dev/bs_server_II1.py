@@ -10,7 +10,7 @@ port = 13337 # choisi arbitrairement
 #GERE LES ARGS
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--port", action="store",type=int, default=13337,
-                    help="Permet de chosir le port sur lequelle va ecouter le server (si aucun port est specifie alors port = 13337)")
+                    help="Permet de chosir le port sur lequelle va ecouter le server \n(si aucun port est specifie alors port = 13337)")
 args = parser.parse_args()
 
 if args.port < 0 or args.port > 65535:
