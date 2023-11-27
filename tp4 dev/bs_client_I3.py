@@ -13,7 +13,7 @@ try :
 
     s.connect((host, port))
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
-    time.sleep(2)
+    time.sleep(1)
 
     answer = input("Que veux-tu envoyer au serveur ? ")
 
