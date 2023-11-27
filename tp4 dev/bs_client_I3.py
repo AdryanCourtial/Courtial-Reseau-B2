@@ -22,7 +22,7 @@ try :
     if type(answer) is not str:
         raise TypeError("Ecrit une une phrase !")
     
-    if p.match(answer == None):
+    if p.match(answer) == None:
         raise TypeError("Tu n'es pas le bienvenue Ici.")
 
     s.send(answer.encode())
