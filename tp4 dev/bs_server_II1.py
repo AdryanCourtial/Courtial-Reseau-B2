@@ -9,12 +9,10 @@ port = 13337 # choisi arbitrairement
 
 #GERE LES ARGS
 parser = argparse.ArgumentParser()
-parser.add_argument("-p", "--port", action="store", default=13337)
+parser.add_argument("-p", "--port", action="store",type=int, default=13337)
 args = parser.parse_args()
 
-if args.port is not int:
-    raise TypeError
-elif args.port < 0 and args.port > 65535:
+if args.port < 0 and args.port > 65535:
     print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
     sys.exit(1) 
 elif args.port > 1024 and args.port < 0:
