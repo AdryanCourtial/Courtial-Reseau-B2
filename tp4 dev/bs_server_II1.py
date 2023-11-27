@@ -1,13 +1,32 @@
 import socket
 import sys
+import argparse
 
 host = '10.1.1.11' # string vide signifie, dans ce conetxte, toutes les IPs de la machine
-port = 13337  # port choisi arbitrairement
+port = 13337 # choisi arbitrairement
 
+
+
+#GERE LES ARGS
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--port", action="store", default=13337)
+args = parser.parse_args()
+
+if args.port is not str:
+    raise TypeError
+elif args.port < 0 and args.port > 65535:
+    print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
+    sys.exit(1) 
+elif args.port > 1024 and args.port < 0:
+    print("ERROR Le port spécifié est un port privilégié. Spécifiez un port au dessus de 1024.")
+    sys.exit(2)
+else:
+    port = args.port 
+
+#GERE LE SOCKET
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))  
 s.listen(5) # 1 = Le Nombre de connexion Accpeter
-
 
 
 conn, addr = s.accept()
