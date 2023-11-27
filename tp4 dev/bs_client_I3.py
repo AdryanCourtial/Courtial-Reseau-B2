@@ -18,8 +18,8 @@ try :
     answer = input("Que veux-tu envoyer au serveur ? ")
 
     p = re.compile('meo|waf')
-    # if type(answer) is not str:
-    #     raise TypeError("Ecrit une une phrase !")
+    if type(answer) is not str:
+        raise TypeError("Ecrit une une phrase !")
     # elif p.match(answer == None):
     #     raise TypeError("Tu n'es pas le bienvenue Ici.")
     # else:
