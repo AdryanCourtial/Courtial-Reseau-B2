@@ -19,13 +19,7 @@ if re.match(calc):
     if len(op[0].encode('UTF-8') > 2 and len(op[1].encode('UTF-8') > 2)):
         raise ValueError('Tu utilise des valeurs trop grandes')
     else:
-
-
-
-
-
-# On envoie
-s.send(calc.encode())
+        s.send(calc.encode('UTF-8'))
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
