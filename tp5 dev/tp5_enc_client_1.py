@@ -15,11 +15,12 @@ calc = calc.strip()
 re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
 
 if re.match(calc):
-    op1 = calc.split(sep='+')
-    print(op1)
+    op = calc.split(sep='+')
+    if len(op[0].encode('UTF-8') > 2 and len(op[1].encode('UTF-8') > 2)):
+        raise ValueError('Tu utilise des valeurs trop grandes')
+    else:
 
-if len(op1.encode('UTF-8') > 2):
-    raise ValueError('Tu utilise une valeur trop grande')
+
 
 
 
