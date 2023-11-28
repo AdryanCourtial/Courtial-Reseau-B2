@@ -13,11 +13,12 @@ calc = input("Calcul à envoyer: ")
 mapping_table = str.maketrans({'+': ' ', '-': ' ', '*': ' '})
 
 re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
+newcalc = calc.translate(mapping_table)
+op = newcalc.split(sep=' ')
 
-if re.match(calc):
-    newcalc = calc.translate(mapping_table)
-    op = newcalc.split(sep=' ')
-    
+if re.match(calc) == None:
+    raise ValueError("")
+
 if len(str(op[0].encode('UTF-8'))) > 16 or len(str(op[1].encode('UTF-8'))) > 16:
     raise ValueError('Tu utilise des valeurs trop grandes')
       
