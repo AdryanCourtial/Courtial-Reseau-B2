@@ -15,7 +15,7 @@ calc = calc.strip()
 re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
 
 if re.match(calc):
-    op1 = calc.split['+','-','*']
+    op1 = calc.split['+']
     print(op1)
 
 if len(op1.encode('UTF-8') > 2):
