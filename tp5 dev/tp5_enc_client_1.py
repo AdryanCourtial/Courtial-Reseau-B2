@@ -15,9 +15,8 @@ mapping_table = str.maketrans({'+': ' ', '-': ' ', '*': ' '})
 re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
 
 if re.match(calc):
-    calc = calc.translate(mapping_table)
+    newcalc = calc.translate(mapping_table)
     op = calc.split(sep=' ')
-    print(calc)
     print(f"{len(str(op[0].encode('UTF-8')))}")
     if len(str(op[0].encode('UTF-8'))) > 16 or len(str(op[1].encode('UTF-8'))) > 16:
         raise ValueError('Tu utilise des valeurs trop grandes')
