@@ -17,10 +17,12 @@ re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
 if re.match(calc):
     newcalc = calc.translate(mapping_table)
     op = newcalc.split(sep=' ')
-    if len(str(op[0].encode('UTF-8'))) > 16 or len(str(op[1].encode('UTF-8'))) > 16:
-        raise ValueError('Tu utilise des valeurs trop grandes')
-    else:
-        s.send(calc.encode('UTF-8'))
+elif len(str(op[0].encode('UTF-8'))) > 16 or len(str(op[1].encode('UTF-8'))) > 16:
+    raise ValueError('Tu utilise des valeurs trop grandes')
+      
+    
+    
+s.send(calc.encode('UTF-8'))
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
