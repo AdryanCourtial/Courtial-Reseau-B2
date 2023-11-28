@@ -30,7 +30,7 @@ while True:
         print(f"Données reçues du client : {data}")
 
         # On répond au client un truc
-        conn.send(int'Hi mate !')
+        conn.send(b'Hi mate !')
 
 
     except socket.error:
