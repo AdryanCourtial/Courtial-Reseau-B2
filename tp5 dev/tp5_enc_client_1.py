@@ -23,7 +23,7 @@ print(op[0].encode())
 print(len(op[0].encode()))
 print(len(op[1].encode()))
 
-if  len(op[0].encode()) > 16 or len(op[1].encode()) > 16:
+if  op[0] > 4294967295 or op[1] > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
       
     
