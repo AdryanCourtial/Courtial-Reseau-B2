@@ -19,11 +19,7 @@ op = newcalc.split(sep=' ')
 if re.match(calc) == None:
     raise ValueError("")
 
-print(op[0].encode())
-print(len(op[0].encode()))
-print(len(op[1].encode()))
-
-if  op[0] > 4294967295 or op[1] > 4294967295 :
+if  int(op[0]) > 4294967295 or int(op[1]) > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
       
     
