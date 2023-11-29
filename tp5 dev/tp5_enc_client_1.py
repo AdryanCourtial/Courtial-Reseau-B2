@@ -19,6 +19,7 @@ op = newcalc.split(sep=' ')
 if re.match(calc) == None:
     raise ValueError("")
 
+print(op[0].encode())
 print(len(op[0].encode()))
 print(len(op[1].encode()))
 
