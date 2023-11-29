@@ -19,11 +19,10 @@ op = newcalc.split(sep=' ')
 if re.match(calc) == None:
     raise ValueError("")
 
-print(len(str(op[0].encode('UTF-8'))))
-print(len(str(op[1].encode('UTF-8'))))
+print(len(op[0].encode()))
+print(len(op[1].encode()))
 
-if len(str(op[0].encode('UTF-8'))) > 16 or len(str(op[1].encode('UTF-8'))) > 16:
-    print(len(str(op[0].encode('UTF-8')))) 
+if  len(op[0].encode()) > 16 or len(op[1].encode()) > 16:
     raise ValueError('Tu utilise des valeurs trop grandes')
       
     
