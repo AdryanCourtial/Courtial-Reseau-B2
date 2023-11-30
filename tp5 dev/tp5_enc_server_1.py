@@ -41,7 +41,7 @@ while True:
         print(f"Received from client {message_received}")
 
         if conn.recv(1) == "0".encode():
-            print("gg fin de la partie 1")
+            print("gg fin de la partie 1tu qs bien recu le dernier bytes le clafin")
 
         res = eval(message_received)
         conn.send(str(res).encode())
