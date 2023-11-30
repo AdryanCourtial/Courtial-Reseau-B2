@@ -26,6 +26,7 @@ calc = calc.encode()
 header = len(calc)
 end = "0".encode()
 
+print(header.to_bytes(4, byteorder="big") + calc + end )
 s.send(header.to_bytes(4, byteorder="big") + calc + end )
 
 # Réception et affichage du résultat
