@@ -23,16 +23,19 @@ while True:
         br = 0
 
         while br < header_len:
-            chunk = conn.recv(min(header_len - br,
-                                1024))
+            chunk = conn.recv(min(header_len - br, 1024))
+
             if not chunk:
-                raise RuntimeError('Invalid chunk received bro')
+                if conn.recv(1) == "0".encode():
+                    raise RuntimeError("Fin de la pt 1 gg !")
 
         # on ajoute le morceau de 1024 ou moins à notre liste
             chunks.append(chunk)
 
         # on ajoute la quantité d'octets reçus au compteur
             br += len(chunk)
+
+            
 
     # ptit one-liner pas combliqué à comprendre pour assembler la liste en un seul message
         message_received = b"".join(chunks).decode('utf-8')
