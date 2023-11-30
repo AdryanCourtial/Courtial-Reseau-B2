@@ -26,8 +26,7 @@ while True:
             chunk = conn.recv(min(header_len - br, 1024))
 
             if not chunk:
-                if conn.recv(1) == "0".encode():
-                    raise RuntimeError("Fin de la pt 1 gg !")
+                raise RuntimeError('Invalid chunk received bro')
 
         # on ajoute le morceau de 1024 ou moins à notre liste
             chunks.append(chunk)
@@ -40,6 +39,9 @@ while True:
     # ptit one-liner pas combliqué à comprendre pour assembler la liste en un seul message
         message_received = b"".join(chunks).decode('utf-8')
         print(f"Received from client {message_received}")
+
+        if conn.recv(1) == "0".encode():
+            print("gg fin de la partie 1")
 
         res = eval(message_received)
         conn.send(str(res).encode())
