@@ -3,7 +3,6 @@ import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(('10.1.1.11', 13337))  
-client, client_addr = socket.accept()
 
 s.listen(1)
 conn, addr = s.accept()
@@ -24,7 +23,7 @@ while True:
         br = 0
 
         while br < header_len:
-            chunk = client.recv(min(header_len - br,
+            chunk = conn.recv(min(header_len - br,
                                 1024))
             if not chunk:
                 raise RuntimeError('Invalid chunk received bro')
