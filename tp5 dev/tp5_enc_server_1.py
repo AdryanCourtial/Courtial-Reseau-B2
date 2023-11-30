@@ -13,7 +13,7 @@ while True:
         # On reçoit la string Hello du client
         header = conn.recv(4)
 
-        if not data: break
+        if not header: break
 
         header.decode()
         print(f"Tu dois lire les {header} prochains Bytes")
