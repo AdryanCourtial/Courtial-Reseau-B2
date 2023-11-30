@@ -21,10 +21,12 @@ if re.match(calc) == None:
 
 if  int(op[0]) > 4294967295 or int(op[1]) > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
-      
     
-    
-s.send(calc.encode('UTF-8'))
+calc = calc.encode()
+header = len(calc)
+end = 0000
+
+s.send(header.to_bytes(4, byteorder="big") + calc + end.to_bytes())
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
