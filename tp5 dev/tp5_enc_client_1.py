@@ -1,5 +1,5 @@
 import socket
-from re import compile, match
+from re import compile
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(('10.1.1.11', 13337))
@@ -24,11 +24,16 @@ if  int(op[0]) > 4294967295 or int(op[1]) > 4294967295 :
     
 calc = calc.encode()
 header = len(calc)
-end = 0000
+end = "0".encode()
 
-s.send(header.to_bytes(4, byteorder="big") + calc + end.to_bytes(1, byteorder='big'))
+s.send(header.to_bytes(4, byteorder="big") + calc + end )
 
 # Réception et affichage du résultat
 s_data = s.recv(1024)
 print(s_data.decode())
 s.close()
+
+
+# A quoi sert le Big concretement () pas compris 
+#Coflin ?
+#Mon erreur ? 
