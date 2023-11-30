@@ -14,10 +14,10 @@ mapping_table = str.maketrans({'+': ' ', '-': ' ', '*': ' '})
 
 re = compile(r"^[0-9]{1,10} *[+x\-\*] *[0-9]{1,10}$")
 newcalc = calc.translate(mapping_table)
-op = newcalc.split(sep=' ')
+op = newcalc.split(sep=' ') 3 3 --> 0[op1] 1[op2]
 
 if re.match(calc) == None:
-    raise ValueError("")
+    raise ValueError("Syntaxe Mauvaise")
 
 if  int(op[0]) > 4294967295 or int(op[1]) > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
