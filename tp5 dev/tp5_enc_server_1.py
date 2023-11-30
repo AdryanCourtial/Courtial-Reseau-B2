@@ -18,7 +18,7 @@ while True:
         header = header.decode()
         print(f"Tu dois lire les {header} prochains Bytes")
 
-        data = conn.recv(header)
+        data = conn.recv(int(header))
         data = data.decode()
         print(data)
         res  = eval(data)
