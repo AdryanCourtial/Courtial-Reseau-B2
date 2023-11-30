@@ -16,7 +16,7 @@ while True:
         if not header: break
 
         header = header.decode()
-        print(f"Tu dois lire les {int(header)} prochains Bytes")
+        print(f"Tu dois lire les {header} prochains Bytes")
 
         data = conn.recv(header)
         data = data.decode()
