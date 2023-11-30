@@ -11,11 +11,11 @@ while True:
 
     try:
         # On reçoit la string Hello du client
-        header = conn.recv(4)
+        header = conn.recv(1)
 
         if not header: break
 
-        header_len = int.from_bytes(header[0:4], byteorder='big')
+        header_len = int.from_bytes(header[0:1], byteorder='big')
         print(f"Tu dois lire les {header_len} prochains Bytes")
 
         chunks = []
