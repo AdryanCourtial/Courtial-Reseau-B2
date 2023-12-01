@@ -45,12 +45,14 @@ while True:
             # on ajoute la quantité d'octets reçus au compteur
             br += len(chunk1)
 
-        op1 = b"".join(chunks2).decode('utf-8')
+        op1 = b"".join(chunks1).decode('utf-8')
         print(f"Received from client {op1}")
 
-        header2 = conn.recv(1)
-        header2_len = int.from_bytes(header2[0:1], byteorder='big')
-        print(f"Tu dois lire les {header2_len} prochains Bytes")
+        header1 = conn.recv(1)
+        header1_len = int.from_bytes(header1[0:1], byteorder='big')
+        print(f"Tu dois lire les {header1_len} prochains Bytes")
+
+
 
         chunks2 = []
 
