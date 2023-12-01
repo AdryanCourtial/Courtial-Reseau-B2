@@ -48,11 +48,11 @@ while True:
         op1 = b"".join(chunks1).decode('utf-8')
         print(f"Received from client {op1}")
 
-        header1 = conn.recv(1)
-        header1_len = int.from_bytes(header1[0:1], byteorder='big')
-        print(f"Tu dois lire les {header1_len} prochains Bytes")
 
 
+        header2 = conn.recv(1)
+        header2_len = int.from_bytes(header2[0:1], byteorder='big')
+        print(f"Tu dois lire les {header2_len} prochains Bytes")
 
         chunks2 = []
 
