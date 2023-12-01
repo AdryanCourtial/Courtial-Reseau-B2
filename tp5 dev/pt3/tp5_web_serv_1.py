@@ -1,10 +1,14 @@
-import socket 
+import socket
+import sys
+
+host = '10.1.1.11' 
+port = 13337 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-s.connect(('10.1.1.11', 13337))
+s.bind((host, port))  
 
-s.listen(1)
+s.listen(13)
+
 conn, addr = s.accept()
 
 while True: 
