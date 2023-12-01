@@ -14,12 +14,14 @@ while True:
 
         if not signe: break
         # VERIF POUR SAVOIR QUELLE SIGNE CES
-        if signe.decode == 1:
+        if signe == bytes('01'):
             signe = "+"
-        elif signe.decode == 2:
+        elif signe == bytes('10'):
             signe = "-"
-        elif signe.decode == 3:
+        elif signe == bytes('11'):
             signe = "*"
+
+        
 
         print(f"Le signe est {signe}")
 
