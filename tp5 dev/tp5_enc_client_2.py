@@ -22,7 +22,7 @@ if re.match(calc) == None:
 if  op1 > 4294967295 or op2 > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
 
-operator = re.findall(r'[+*-]', calc)
+operator = re.findall(r"[+*-]", calc)
 operator = operator[0]
 print(operator)
 
