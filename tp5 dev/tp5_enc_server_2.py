@@ -82,7 +82,7 @@ while True:
         if conn.recv(1) == "0".encode():
             print("gg fin de la partie 1 tu as bien recu le dernier bytes le clafin")
 
-        res = eval(op1 + str(signe) + op2)
+        res = eval(op1 + signe + op2)
         conn.send(str(res).encode())
 
     except socket.error:
