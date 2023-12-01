@@ -1,10 +1,18 @@
-import http.server
-import socketserver
+import socket 
 
-PORT = 13337
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('10.1.1.11', 13337))
 
-Handler = http.server.SimpleHTTPRequestHandler
+s.listen(1)
+conn, addr = s.accept()
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("serving at port", PORT)
-    httpd.serve_forever()
+while True: 
+    try:
+        request = conn.recv(1).decode
+    except socket.error:
+        print("Error Occured.")
+        break
+
+ 
+
+conn.close()
