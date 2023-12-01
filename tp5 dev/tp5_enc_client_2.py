@@ -50,8 +50,6 @@ end = "0".encode()
 print(operator + headerop1 + op1 + headerop2 + op2 + end) #Trame a envoyer : SIGNE (EN FORME DE 01,10,11 PREDEFINIE) / Header op1 / op 1 / Headerop2 / op 2 
 s.send(operator + headerop1 + op1 + headerop2 + op2 + end)
 
-
-
 # Réception et affichage du résultat
 s_data = s.recv(1024)
 print(s_data.decode())
