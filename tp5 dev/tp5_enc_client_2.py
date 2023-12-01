@@ -1,5 +1,5 @@
 import socket
-import re 
+from re import compile, findall, match
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(('10.1.1.11', 13337))
@@ -22,7 +22,7 @@ if re.match(calc) == None:
 if  op1 > 4294967295 or op2 > 4294967295 :
     raise ValueError('Tu utilise des valeurs trop grandes')
 
-operator = re.findall(r"[+*-]", calc)
+operator = findall(r"[+*-]", calc)
 operator = operator[0]
 print(operator)
 
