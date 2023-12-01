@@ -49,8 +49,8 @@ while True:
 
         print(f"Received from client {op2}")
 
-        # if conn.recv(1) == "0".encode():
-        #     print("gg fin de la partie 1 tu as bien recu le dernier bytes le clafin")
+        if conn.recv(1) == "0".encode():
+            print("gg fin de la partie 1 tu as bien recu le dernier bytes le clafin")
 
         op1 = int.from_bytes(op1, "big")
         op2 = int.from_bytes(op2, "big")
