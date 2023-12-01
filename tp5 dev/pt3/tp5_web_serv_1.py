@@ -1,7 +1,7 @@
 import socket 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('10.1.1.11', 13337))
+s.connect(('10.1.1.11', 13336))
 
 s.listen(1)
 conn, addr = s.accept()
