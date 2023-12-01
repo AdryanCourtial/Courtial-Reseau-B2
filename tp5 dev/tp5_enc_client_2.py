@@ -28,15 +28,15 @@ print(operator)
 
 if operator == "+":
     operator = 1 
-    operator = operator.to_bytes(1, "big")
 elif operator == "-":
     operator = 2
-    operator = operator.to_bytes(1, 'big')
 elif operator == "*":
     operator = 3
-    operator = operator.to_bytes(1, 'big')
 else:
     raise InterruptedError("Erreur pas de signe aproprié")
+
+operator = operator.to_bytes(1, 'big')
+
 
 op1 = op1.to_bytes(2, 'big')
 op2 = op2.to_bytes(2, 'big')
