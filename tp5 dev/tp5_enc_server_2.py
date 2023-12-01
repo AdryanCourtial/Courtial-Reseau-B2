@@ -10,17 +10,20 @@ conn, addr = s.accept()
 while True:
 
     try:
-        signe = conn.recv(1) # JE RECUP EN PREMIER LE SIGNE 
+        signes = conn.recv(1) # JE RECUP EN PREMIER LE SIGNE 
 
-        if not signe: break
+        if not signes: break
         # VERIF POUR SAVOIR QUELLE SIGNE CES
-        if signe == bytes('01'):
-            signe = "+"
-        elif signe == bytes('10'):
-            signe = "-"
-        elif signe == bytes('11'):
-            signe = "*"
 
+        plus = 1
+        moins = 2
+        multiplier = 3
+        if signes == plus.to_bytes(1, "big"):
+            signe = "+"
+        elif signes == moins.to_bytes(1, "big"):
+            signe = "-"
+        elif signes == multiplier.to_bytes(1, "big"):
+            signe = "*"
         
 
         print(f"Le signe est {signe}")
