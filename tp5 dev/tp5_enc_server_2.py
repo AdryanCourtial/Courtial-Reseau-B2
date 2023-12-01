@@ -52,12 +52,12 @@ while True:
         # if conn.recv(1) == "0".encode():
         #     print("gg fin de la partie 1 tu as bien recu le dernier bytes le clafin")
 
-        print(int.from_bytes(op1, "big"))
-        print(int.from_bytes(op2, "big"))
+        op1 = int.from_bytes(op1, "big")
+        op2 = int.from_bytes(op2, "big")
         print(signe)
 
-        res = eval(op1 + signe + op2)
-        conn.send(str(res).encode())
+        res = eval(str(op1) + signe + str(op2))
+        conn.send(str(res).encode())   
 
     except socket.error:
         print("Error Occured.")
