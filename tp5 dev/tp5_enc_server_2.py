@@ -56,7 +56,7 @@ while True:
         print(op2)
         print(signe)
 
-        res = eval(op1 + signe + op2)
+        res = eval(str(op1) + signe + str(op2))
         conn.send(str(res).encode())
 
     except socket.error:
