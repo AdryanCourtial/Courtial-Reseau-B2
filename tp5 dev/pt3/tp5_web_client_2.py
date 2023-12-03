@@ -5,7 +5,7 @@ server_port = 13337
 
 conn = http.client.HTTPConnection(server_address, server_port)
 
-
+request = input("Quelle page voulais vous ?")
 # Envoyer une requête GET au serveur
 conn.request("GET", "/")
 
