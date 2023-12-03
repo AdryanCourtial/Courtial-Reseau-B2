@@ -13,7 +13,7 @@ conn, addr = s.accept()
 
 while True: 
     try:
-        request = conn.recv(1).decode
+        request = conn.recv(1024).decode
 
         print(request)
 
