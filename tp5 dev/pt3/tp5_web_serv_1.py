@@ -3,7 +3,7 @@ from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 
 # Spécifier le port sur lequel le serveur écoutera
-port = 8000
+port = 13337
 
 # Créer une instance de SimpleHTTPRequestHandler
 handler = SimpleHTTPRequestHandler
