@@ -12,3 +12,11 @@ print(f"Serveur en cours d'exécution sur le port {port}")
 
 # Lancer le serveur
 httpd.serve_forever()
+
+class CustomHandler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        # Personnaliser la réponse pour la requête GET
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
