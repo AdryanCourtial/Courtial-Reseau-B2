@@ -9,7 +9,7 @@ port = 13337
 handler = SimpleHTTPRequestHandler
 
 # Créer une instance de TCPServer liée à l'adresse locale et au port spécifié
-httpd = TCPServer(("10.1.1.12", port), handler)
+httpd = TCPServer(("10.1.1.11", port), handler)
 
 # Afficher un message pour indiquer que le serveur est en cours d'exécution
 print(f"Serveur en cours d'exécution sur le port {port}")
