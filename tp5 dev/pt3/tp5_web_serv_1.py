@@ -20,3 +20,4 @@ class CustomHandler(SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Reussi", "HTTP/1.0 200 OK\n\n<h1>Hello je suis un serveur HTTP</h1>")
             self.end_headers()
+            self.wfile.write(b"Page d'accueil")
