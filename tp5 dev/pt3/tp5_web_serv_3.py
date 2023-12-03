@@ -15,7 +15,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
         elif self.path == '/test':
             self.send_response(200)
             #OUVERTURE FICHIER
-            file = open('/home/baptiste/Courtial-Reseau-B2/tp5 dev/pt3/html')
+            file = open('/home/baptiste/Courtial-Reseau-B2/tp5 dev/pt3/html/test.html')
             html_content = file.read()
             file.close()
             # ----------------------
