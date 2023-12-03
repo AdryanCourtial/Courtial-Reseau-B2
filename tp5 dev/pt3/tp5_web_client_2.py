@@ -12,6 +12,8 @@ conn.request("GET", "/")
 # Récupérer la réponse du serveur
 response = conn.getresponse()
 
+print(f"Code d'état: {response.version}")
+
 # Afficher le code d'état de la réponse
 print(f"Code d'état: {response.status}")
 
