@@ -7,7 +7,7 @@ conn = http.client.HTTPConnection(server_address, server_port)
 
 request = input("Quelle page voulais vous ?")
 # Envoyer une requête GET au serveur
-conn.request("GET", "/")
+conn.request("GET", request)
 
 # Récupérer la réponse du serveur
 response = conn.getresponse()
