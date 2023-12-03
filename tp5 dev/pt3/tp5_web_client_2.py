@@ -19,7 +19,7 @@ print(f"Code d'état: {response.status}")
 
 # Afficher le contenu de la réponse
 print("Contenu de la réponse:")
-print(response.read().decode('utf-8'))
+print(response.read().decode())
 
 # Fermer la connexion
 conn.close()
