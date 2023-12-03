@@ -19,7 +19,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
             html_content = file.read()
             file.close()
             # ----------------------
-            self.send_header("HTTP/1.0 200 OK\n\n", html_content)
+            self.send_header("HTTP/1.0 200 OK\n\n", html_content.encode())
             self.end_headers()
             self.wfile.write(b"Page d'accueil")
 
