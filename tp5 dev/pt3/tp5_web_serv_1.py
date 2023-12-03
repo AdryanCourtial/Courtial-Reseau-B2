@@ -1,35 +1,18 @@
-import socket
-import sys
+# Importer le module http.server
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
 
-host = '10.1.1.11' 
-port = 13337 
+# Spécifier le port sur lequel le serveur écoutera
+port = 8000
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((host, port))  
+# Créer une instance de SimpleHTTPRequestHandler
+handler = SimpleHTTPRequestHandler
 
-s.listen(1)
+# Créer une instance de TCPServer liée à l'adresse locale et au port spécifié
+httpd = TCPServer(("localhost", port), handler)
 
-conn, addr = s.accept()
+# Afficher un message pour indiquer que le serveur est en cours d'exécution
+print(f"Serveur en cours d'exécution sur le port {port}")
 
-while True: 
-    try:
-        
-        con = conn.recv(1024).decode
-        print(con)
-        
-        request = conn.recv(1024).decode
-
-        print(request)
-
-        if "/ GET" in request:
-            print("HTTP/1.0 200 OK\n\n<h1>Hello je suis un serveur HTTP</h1>")
-
-
-    except socket.error:
-        print("Error Occured.")
-        break
-
- 
-
-conn.close()
-sys.exit()
+# Lancer le serveur
+httpd.serve_forever()
