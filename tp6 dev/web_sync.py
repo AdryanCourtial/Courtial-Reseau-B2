@@ -1,4 +1,5 @@
 import requests
+import os
 import argparse
 
 #Gestion des arguments
@@ -10,13 +11,19 @@ args = parser.parse_args()
 url = args.url
 
 #Les variable global
-html_path = "/tmp/web_page"
+html_path = "/tmp/web_page/fichier.html"
 
 def get_content(url):
     reponse = requests.get(url)
     return reponse
 
 def write_content(content, file):
-    open()
+    file = open(file, mode="w")
+    file.write(content)
+    file.close()
+
+if __name__ == "__main__":
+    write_content(get_content(url), html_path)
+    
 
 
