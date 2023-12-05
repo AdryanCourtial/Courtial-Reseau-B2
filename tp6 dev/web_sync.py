@@ -15,8 +15,8 @@ html_path = "/tmp/web_page/fichier.html"
 
 def get_content(url):
     reponse = requests.get(url)
-    content = str(reponse.status_code) + (reponse.content) + (reponse.reason)
-    return (content)
+    content = (reponse.status_code) + (reponse.content) + (reponse.reason)
+    return str(content)
 
 def write_content(content, file):
     file = open(file, mode="w")
