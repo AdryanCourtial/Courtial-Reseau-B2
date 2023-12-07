@@ -1,4 +1,3 @@
-import asyncio
 import socket
 
 ip = "10.1.1.11"
@@ -13,7 +12,8 @@ while True:
 
         conn.send("Hello".encode())
 
-        conn.recv(1024)
+        entry = conn.recv(1024)
+        print(entry.decode())
 
     except Exception:
         conn.close()
