@@ -8,13 +8,13 @@ conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 conn.connect((ip, port))
 
-try:
+try :
     conn.send("Hello".encode())
 
     entry = conn.recv(1024)
     print(entry.decode())
 
 except Exception:
-     conn.close()
+    #  conn.close()
      print(Exception) 
-     sys.close()
+    #  sys.close()
