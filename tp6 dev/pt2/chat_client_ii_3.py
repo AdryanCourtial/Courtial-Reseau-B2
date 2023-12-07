@@ -19,7 +19,7 @@ async def main():
             async_input(writer)
 
             async_receive(reader)
-            
+
         except Exception: 
             raise Exception
         
@@ -28,6 +28,7 @@ async def async_input(writer: asyncio.StreamWriter):
     while True:
         msg = await aioconsole.ainput("Que veut tu écrire ?")
         writer.write((msg.encode()))
+        await writer.drain()
 
 async def async_receive(reader: asyncio.StreamReader):
     while True:
