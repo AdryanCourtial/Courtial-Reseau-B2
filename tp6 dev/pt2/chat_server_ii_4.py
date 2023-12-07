@@ -12,7 +12,7 @@ async def handle_client_msg(reader, writer):
             addr = writer.get_extra_info("peername")
             client[addr] = {}
 
-            if client == {}:
+            if client[addr] == {}:
                     client[addr]['r'] = reader
                     client[addr]['w'] = writer
 
