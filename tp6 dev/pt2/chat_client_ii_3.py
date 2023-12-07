@@ -6,26 +6,14 @@ import aioconsole
 ip = "10.1.1.11"
 port = 13337
 
-async def async_input():
-    msg = await aioconsole.ainput("Quelle message veut tu envoyer ?")
-    conn.send(msg.encode())
-    
-async def async_receive():
-    msg = await conn.(1024)
-    print(msg.decode())
-    
-conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+async def main():
+    reader, writer = await asyncio.open_connection(host=ip, port=port)
 
-conn.connect((ip, port))
+    writer.write('Hello'.encode())
+    await writer.drain()
 
-conn.send("Hello".encode())
-entry = conn.recv(1024)
-print(entry.decode())
+    entry = await reader.read(1024)
+    print(entry.decode())
 
-while True:
-    try :
-        async_input()
-        async_receive()
-    except Exception:
-        conn.close()
-        raise (Exception) 
+if __name__ == "__main__":
+    asyncio.run(main())
