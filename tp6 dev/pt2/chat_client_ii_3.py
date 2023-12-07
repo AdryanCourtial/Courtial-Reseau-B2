@@ -1,7 +1,6 @@
 import socket
 import asyncio
 import __future__
-import aioconsole
 
 ip = "10.1.1.11"
 port = 13337
