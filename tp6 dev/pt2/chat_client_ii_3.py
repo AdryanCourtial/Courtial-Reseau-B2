@@ -16,9 +16,9 @@ async def main():
 
     while True:
         try:
-            async_input(writer)
+            await async_input(writer)
 
-            async_receive(reader)
+            await async_receive(reader)
 
         except Exception: 
             raise Exception
