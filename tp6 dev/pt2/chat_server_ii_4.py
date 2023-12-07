@@ -9,6 +9,8 @@ async def handle_client_msg(reader, writer):
     while True:
         try:
             entry = await reader.read(1024)
+            if entry == b'':
+                break
             addr = writer.get_extra_info("peername")
             client[addr] = {}
 
@@ -24,16 +26,19 @@ async def handle_client_msg(reader, writer):
                     client[addr]['r'] = reader
                     client[addr]['w'] = writer
             
-            print(client)
 
-            if entry == b'':
-                break
 
             msg = entry.decode()
             print(f"message receive from {addr} : {msg}")
 
-            writer.write(f"Hello {addr}".encode())
-            await writer.drain()
+            #One Envoie la donné a tout le monde 
+
+            for key in client:
+                if key == addr:
+                    continue
+                else:
+                    client[key].write(f"{addr} a dit {msg}".encode())
+                    await writer.drain()
 
         except Exception:
             return Exception
