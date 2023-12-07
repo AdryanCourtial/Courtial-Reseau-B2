@@ -11,8 +11,12 @@ async def handle_client_msg(reader, writer):
             entry = await reader.read(1024)
             if entry == b'':
                 break
+
             addr = writer.get_extra_info("peername")
             client[addr] = {}
+
+            msg = entry.decode()
+            print(f"message receive from {addr} : {msg}")
 
             if client[addr] == {}:
                     client[addr]['r'] = reader
@@ -26,14 +30,9 @@ async def handle_client_msg(reader, writer):
                     client[addr]['r'] = reader
                     client[addr]['w'] = writer
             
-
-
-            msg = entry.decode()
-            print(f"message receive from {addr} : {msg}")
-
             #One Envoie la donné a tout le monde 
 
-            for key in client:
+            for key in client.keys():
                 if key == addr:
                     continue
                 else:
