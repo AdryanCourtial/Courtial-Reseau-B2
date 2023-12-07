@@ -12,11 +12,12 @@ async def handle_client_msg(reader, writer):
             addr = writer.get_extra_info("peername")
             client[addr] = {}
 
-            for key in client.keys():
-                if client == {}:
+            if client == {}:
                     client[addr]['r'] = reader
                     client[addr]['w'] = writer
-                    
+
+            for key in client.keys():
+
                 if key == addr:
                     continue
                 else:
