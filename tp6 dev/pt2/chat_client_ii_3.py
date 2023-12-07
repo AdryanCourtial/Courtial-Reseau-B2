@@ -11,9 +11,6 @@ async def main():
     writer.write('Hello'.encode())
     await writer.drain()
 
-    entry = await reader.read(1024)
-    print(entry.decode())
-
     while True:
         try:
             tasks = [ async_input(writer), async_receive(reader) ]
