@@ -2,17 +2,16 @@ import asyncio
 
 
 async def handle_client_msg(reader, writer):
-    entry = await reader.read(1024)
-    addr = writer.get_extra_info("peername")
-    msg = entry.decode()
-    print(f"message receive from {addr} : {msg}")
-    
     while True:
         try:
+            entry = await reader.read(1024)
+            addr = writer.get_extra_info("peername")
 
             if entry == b'':
                 break
 
+            msg = entry.decode()
+            print(f"message receive from {addr} : {msg}")
 
             writer.write(f"Hello {addr}".encode())
             await writer.drain()
