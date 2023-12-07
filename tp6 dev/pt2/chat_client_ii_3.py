@@ -16,9 +16,9 @@ async def main():
 
     while True:
         try:
-            await async_input(writer)
-
-            await async_receive(reader)
+            
+            tasks = [ async_input(), async_receive() ]
+            await asyncio.gather(*tasks)
 
         except Exception: 
             raise Exception
