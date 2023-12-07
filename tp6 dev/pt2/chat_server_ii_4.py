@@ -13,6 +13,10 @@ async def handle_client_msg(reader, writer):
             client[addr] = {}
 
             for key in client.keys():
+                if client == {}:
+                    client[addr]['r'] = reader
+                    client[addr]['w'] = writer
+                    
                 if key == addr:
                     continue
                 else:
@@ -20,7 +24,7 @@ async def handle_client_msg(reader, writer):
                     client[addr]['w'] = writer
             
             print(client)
-            
+
             if entry == b'':
                 break
 
