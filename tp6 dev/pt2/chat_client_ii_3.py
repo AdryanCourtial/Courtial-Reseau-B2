@@ -14,14 +14,12 @@ async def main():
     entry = await reader.read(1024)
     print(entry.decode())
 
-    while True:
-        try:
-            
-            tasks = [ async_input(), async_receive() ]
-            await asyncio.gather(*tasks)
+    try:
+        tasks = [ async_input(), async_receive() ]
+        await asyncio.gather(*tasks)
 
-        except Exception: 
-            raise Exception
+    except Exception: 
+        raise Exception
         
 
 async def async_input(writer: asyncio.StreamWriter):
