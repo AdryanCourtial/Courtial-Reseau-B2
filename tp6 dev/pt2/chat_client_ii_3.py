@@ -31,7 +31,7 @@ async def async_input(writer: asyncio.StreamWriter):
 
 async def async_receive(reader: asyncio.StreamReader):
     while True:
-        msg = reader.read(1024)
+        msg = await reader.read(1024)
         print(msg.decode())
 
 if __name__ == "__main__":
