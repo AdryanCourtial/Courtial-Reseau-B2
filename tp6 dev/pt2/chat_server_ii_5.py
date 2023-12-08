@@ -20,7 +20,7 @@ async def handle_client_msg(reader, writer):
                     clients[addr]['w'] = writer
 
 
-            if "Hello|" in msg:
+            if "szlfkzifznznznfni|" in msg:
                 pseudo = msg[6::]
                 clients[addr]['pseudo'] = pseudo
                 for key in clients:
