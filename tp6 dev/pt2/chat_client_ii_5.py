@@ -10,7 +10,7 @@ async def main():
 
     pseudo = input("Choisi ton nom d'utilisateur : ")
     writer.write(f"Hello|{pseudo}".encode())
-    writer.drain()
+    await writer.drain()
 
     while True:
         try:
