@@ -7,7 +7,7 @@ async def handle_client_msg(reader, writer):
             print(entry)
 
             if entry == b'':
-                continue
+                break
 
             addr = writer.get_extra_info("peername")
 
@@ -34,7 +34,7 @@ async def handle_client_msg(reader, writer):
                 else:
                     print(f"sending to {key}")
                     w = clients[key]["w"]
-                    w.write(f"{pseudo} a dit {msg}".encode())
+                    w.write(f"\n{pseudo} a dit {msg}".encode())
                     await w.drain()
             #One Envoie la donné a tout le monde 
 
