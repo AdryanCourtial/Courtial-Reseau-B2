@@ -1,6 +1,5 @@
 import asyncio
 
-
 async def handle_client_msg(reader, writer):
     while True:
         try:
