@@ -20,24 +20,16 @@ async def handle_client_msg(reader, writer):
                 client[addr] = {}
                 client[addr]['r'] = reader
                 client[addr]['w'] = writer
+                print(f"new client : {addr} so {client}")
 
         for key in client.keys():
             if key == addr:
                 continue
             else:
-                client[addr]['r'] = reader
-                client[addr]['w'] = writer #FAUT FAIRE DE LASYNCRINE QUELQUE PARTY
-
-        print(client)                    
+                w = client[key]["w"]
+                w.write(f"{addr} a dit {msg}".encode())
         
         #One Envoie la donné a tout le monde 
-
-        for key in client.keys():
-            if key == addr:
-                continue
-            else:
-                client[key].write(f"{addr} a dit {msg}".encode())
-                await writer.drain()
 
     except Exception:
         return Exception
