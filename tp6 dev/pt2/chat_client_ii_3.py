@@ -24,6 +24,7 @@ async def async_input(writer: asyncio.StreamWriter):
     while True:
         msg = await aioconsole.ainput("Que veux tu écrire ?")
         writer.write((msg.encode()))
+        print(f"sent {msg}")
         await writer.drain()
 
 async def async_receive(reader: asyncio.StreamReader):
