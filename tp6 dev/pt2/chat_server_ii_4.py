@@ -22,10 +22,12 @@ async def handle_client_msg(reader, writer):
                 client[addr]['w'] = writer
                 print(f"new client : {addr} so {client}")
 
-        for key in client.keys():
+        for key in client:
             if key == addr:
+                print("no not send message to original sender")
                 continue
             else:
+                print(f"sending to {key}")
                 w = client[key]["w"]
                 w.write(f"{addr} a dit {msg}".encode())
         
