@@ -7,6 +7,7 @@ client = {}
 
 async def handle_client_msg(reader, writer):
     try:
+        print("meomeo")
         entry = await reader.read(1024)
         print(entry)
         if entry == b'':
