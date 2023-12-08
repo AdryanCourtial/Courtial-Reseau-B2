@@ -6,42 +6,41 @@ client = {}
 
 
 async def handle_client_msg(reader, writer):
-    while True:
-        try:
-            entry = await reader.read(1024)
-            if entry == b'':
-                break
+    try:
+        entry = await reader.read(1024)
+        if entry == b'':
+            return None
 
-            addr = writer.get_extra_info("peername")
+        addr = writer.get_extra_info("peername")
 
-            msg = entry.decode()
-            print(f"message receive from {addr} : {msg}")
+        msg = entry.decode()
+        print(f"message receive from {addr} : {msg}")
 
-            if not addr in client:
-                    client[addr] = {}
-                    client[addr]['r'] = reader
-                    client[addr]['w'] = writer
+        if not addr in client:
+                client[addr] = {}
+                client[addr]['r'] = reader
+                client[addr]['w'] = writer
 
-            for key in client.keys():
-                if key == addr:
-                    continue
-                else:
-                    client[addr]['r'] = reader
-                    client[addr]['w'] = writer #FAUT FAIRE DE LASYNCRINE QUELQUE PARTY
+        for key in client.keys():
+            if key == addr:
+                continue
+            else:
+                client[addr]['r'] = reader
+                client[addr]['w'] = writer #FAUT FAIRE DE LASYNCRINE QUELQUE PARTY
 
-            print(client)                    
-            
-            #One Envoie la donné a tout le monde 
+        print(client)                    
+        
+        #One Envoie la donné a tout le monde 
 
-            for key in client.keys():
-                if key == addr:
-                    continue
-                else:
-                    client[key].write(f"{addr} a dit {msg}".encode())
-                    await writer.drain()
+        for key in client.keys():
+            if key == addr:
+                continue
+            else:
+                client[key].write(f"{addr} a dit {msg}".encode())
+                await writer.drain()
 
-        except Exception:
-            return Exception
+    except Exception:
+        return Exception
 
 async def main():
     server = await asyncio.start_server(handle_client_msg, "10.1.1.11", port=13337)
