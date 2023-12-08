@@ -24,11 +24,14 @@ async def handle_client_msg(reader, writer):
                 pseudo = msg[6::]
                 clients[addr]['pseudo'] = pseudo
                 for key in clients:
-                    w = clients[key]["w"]
-                    w.write(f"\n Annonce : {pseudo} a rejoint la chatroom".encode())
-                    await w.drain()
-                    print(f"new client : {addr} with name : {pseudo} so {clients}")
-                    break
+                        if key == addr:
+                            continue
+                        else:
+                            w = clients[key]["w"]
+                            w.write(f"\n Annonce : {pseudo} a rejoint la chatroom".encode())
+                            await w.drain()
+                            print(f"new client : {addr} with name : {pseudo} so {clients}")
+                            break
             else:
                 for key in clients:
                     if key == addr:
