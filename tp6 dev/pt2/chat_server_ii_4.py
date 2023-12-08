@@ -8,6 +8,7 @@ client = {}
 async def handle_client_msg(reader, writer):
     try:
         entry = await reader.read(1024)
+        print(entry)
         if entry == b'':
             return None
 
@@ -32,6 +33,7 @@ async def handle_client_msg(reader, writer):
                 w.write(f"{addr} a dit {msg}".encode())
                 await w.drain()
         
+        print("packet handled")
         #One Envoie la donné a tout le monde 
 
     except Exception:
