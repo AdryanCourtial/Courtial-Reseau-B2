@@ -23,7 +23,7 @@ async def main():
 
 async def async_input(writer: asyncio.StreamWriter):
     while True:
-        msg = await aioconsole.ainput("Que veux tu écrire ?")
+        msg = await aioconsole.ainput("")
         writer.write((msg.encode()))
         await writer.drain()
         print(f"sent {msg}")
