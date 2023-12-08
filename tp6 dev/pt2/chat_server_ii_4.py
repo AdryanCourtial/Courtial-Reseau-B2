@@ -7,8 +7,8 @@ async def handle_client_msg(reader, writer):
         entry = await reader.read(1024)
         print(entry)
 
-        if entry == b'':
-            return None
+        # if entry == b'':
+        #     return None
 
         addr = writer.get_extra_info("peername")
 
