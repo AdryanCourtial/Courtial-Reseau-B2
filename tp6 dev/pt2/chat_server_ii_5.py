@@ -29,9 +29,6 @@ async def handle_client_msg(reader, writer):
                                 
             if "Hello|" not in msg:
                 for key in clients:
-                    if key == addr:
-                        continue
-                    else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
                         w.write(f"\n{pseudo} a dit :    {msg}".encode())
