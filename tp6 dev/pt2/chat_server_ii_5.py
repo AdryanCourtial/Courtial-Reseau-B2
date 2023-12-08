@@ -18,7 +18,7 @@ async def handle_client_msg(reader, writer):
                     clients[addr] = {}
                     clients[addr]['r'] = reader
                     clients[addr]['w'] = writer
-                    if "Hello|" in msg:
+                    if "Hello|" in msg[0:5]:
                         pseudo = msg[6::]
                         clients[addr]['pseudo'] = pseudo
                         for key in clients:
@@ -26,16 +26,16 @@ async def handle_client_msg(reader, writer):
                             w.write(f"\n Annonce : {pseudo} a rejoint la chatroom".encode())
                             await w.drain()
                             print(f"new client : {addr} with name : {pseudo} so {clients}")
-                            continue
-
-            for key in clients:
-                if key == addr:
-                    continue
-                else:
-                    print(f"sending to {key}")
-                    w = clients[key]["w"]
-                    w.write(f"\n{pseudo} a dit {msg}".encode())
-                    await w.drain()
+                            break
+                    else:
+                         for key in clients:
+                            if key == addr:
+                                continue
+                            else:
+                                print(f"sending to {key}")
+                                w = clients[key]["w"]
+                                w.write(f"\n{pseudo} a dit {msg}".encode())
+                                await w.drain()
             #One Envoie la donné a tout le monde 
 
         except Exception:
