@@ -23,12 +23,13 @@ async def handle_client_msg(reader, writer):
                     client[addr]['w'] = writer
 
             for key in client.keys():
-
                 if key == addr:
                     continue
                 else:
                     client[addr]['r'] = reader
-                    client[addr]['w'] = writer
+                    client[addr]['w'] = writer #FAUT FAIRE DE LASYNCRINE QUELQUE PARTY
+
+            print(client)                    
             
             #One Envoie la donné a tout le monde 
 
