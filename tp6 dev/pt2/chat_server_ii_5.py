@@ -2,7 +2,7 @@ import asyncio
 
 async def handle_client_msg(reader, writer):
     while True:
-        try:
+        
             entry = await reader.read(1024)
             print(entry)
 
@@ -39,8 +39,8 @@ async def handle_client_msg(reader, writer):
                     await w.drain()
             #One Envoie la donné a tout le monde 
 
-        except Exception:
-            return Exception
+        # except Exception:
+        #     return Exception
 
 async def main():
     
