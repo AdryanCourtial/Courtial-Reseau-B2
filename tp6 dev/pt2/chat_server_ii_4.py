@@ -1,10 +1,6 @@
 import asyncio
 
 
-global clients
-client = {}
-
-
 async def handle_client_msg(reader, writer):
     try:
         print("meomeo")
@@ -18,19 +14,19 @@ async def handle_client_msg(reader, writer):
         msg = entry.decode()
         print(f"message receive from {addr} : {msg}")
 
-        if not addr in client:
-                client[addr] = {}
-                client[addr]['r'] = reader
-                client[addr]['w'] = writer
-                print(f"new client : {addr} so {client}")
+        if not addr in clients:
+                clients[addr] = {}
+                clients[addr]['r'] = reader
+                clients[addr]['w'] = writer
+                print(f"new client : {addr} so {clients}")
 
-        for key in client:
+        for key in clients:
             if key == addr:
                 print("no not send message to original sender")
                 continue
             else:
                 print(f"sending to {key}")
-                w = client[key]["w"]
+                w = clients[key]["w"]
                 w.write(f"{addr} a dit {msg}".encode())
                 await w.drain()
         
@@ -41,6 +37,9 @@ async def handle_client_msg(reader, writer):
         return Exception
 
 async def main():
+    
+    global clients
+    clients = {}
     server = await asyncio.start_server(handle_client_msg, "10.1.1.11", port=13337)
 
     addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
