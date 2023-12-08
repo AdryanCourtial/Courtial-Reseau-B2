@@ -7,16 +7,7 @@ async def handle_client_msg(reader, writer):
             print(entry)
 
             if entry == b'':
-                for key in clients:
-                    if key == addr:
-                        continue
-                    else:
-                        print(f"deco de {pseudo}")
-                        w = clients[key]["w"]
-                        w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
-                        await w.drain()
-                        return
-                
+                return
 
             addr = writer.get_extra_info("peername")
 
@@ -32,7 +23,7 @@ async def handle_client_msg(reader, writer):
                         clients[addr]['pseudo'] = pseudo
                         for key in clients:
                             w = clients[key]["w"]
-                            w.write(f"\n            Annonce : {pseudo} a rejoint la chatroom \n".encode())
+                            w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom".encode())
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
                                 
