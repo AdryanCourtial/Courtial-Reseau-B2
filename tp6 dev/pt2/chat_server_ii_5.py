@@ -26,7 +26,7 @@ async def handle_client_msg(reader, writer):
                             w = clients[key]["w"]
                             w.write(f"\nAnnonce : {pseudo} a rejoint la chatroom".encode())
                             await w.drain()
-                            print(f"new client : {addr} with name : {pseudo} so {clients}")
+                            # print(f"new client : {addr} with name : {pseudo} so {clients}")
                             return None
 
             for key in clients:
