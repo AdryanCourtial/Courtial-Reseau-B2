@@ -34,7 +34,7 @@ async def handle_client_msg(reader, writer):
                     if key == addr:
                         continue
                     else:
-                        print(f"sending to {key}")
+                        print(f"sending to {key} named : {clients[key][pseudo]}")
                         w = clients[key]["w"]
                         w.write(f"\n{pseudo} a dit {msg}".encode())
                         await w.drain()
