@@ -6,6 +6,7 @@ async def handle_client_msg(reader, writer):
         print("meomeo")
         entry = await reader.read(1024)
         print(entry)
+
         if entry == b'':
             return None
 
@@ -14,21 +15,21 @@ async def handle_client_msg(reader, writer):
         msg = entry.decode()
         print(f"message receive from {addr} : {msg}")
 
-        if not addr in clients:
-                clients[addr] = {}
-                clients[addr]['r'] = reader
-                clients[addr]['w'] = writer
-                print(f"new client : {addr} so {clients}")
+        # if not addr in clients:
+        #         clients[addr] = {}
+        #         clients[addr]['r'] = reader
+        #         clients[addr]['w'] = writer
+        #         print(f"new client : {addr} so {clients}")
 
-        for key in clients:
-            if key == addr:
-                print("no not send message to original sender")
-                continue
-            else:
-                print(f"sending to {key}")
-                w = clients[key]["w"]
-                w.write(f"{addr} a dit {msg}".encode())
-                await w.drain()
+        # for key in clients:
+        #     if key == addr:
+        #         print("no not send message to original sender")
+        #         continue
+        #     else:
+        #         print(f"sending to {key}")
+        #         w = clients[key]["w"]
+        #         w.write(f"{addr} a dit {msg}".encode())
+        #         await w.drain()
         
         print("packet handled")
         #One Envoie la donné a tout le monde 
