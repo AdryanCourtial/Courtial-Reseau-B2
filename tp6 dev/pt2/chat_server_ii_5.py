@@ -7,7 +7,15 @@ async def handle_client_msg(reader, writer):
             print(entry)
 
             if entry == b'':
-                return
+                 for key in clients:
+                    if key == addr:
+                        continue
+                    else:
+                        print(f"deco de {pseudo}")
+                        w = clients[key]["w"]
+                        w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
+                        # await w.drain()
+                        return
 
             addr = writer.get_extra_info("peername")
 
