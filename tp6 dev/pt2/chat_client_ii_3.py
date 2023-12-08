@@ -29,6 +29,8 @@ async def async_input(writer: asyncio.StreamWriter):
 async def async_receive(reader: asyncio.StreamReader):
     while True:
         msg = await reader.read(1024)
+        if msg == b'':
+            break
         print(msg.decode())
 
 if __name__ == "__main__":

@@ -13,12 +13,12 @@ async def handle_client_msg(reader, writer):
                 break
 
             addr = writer.get_extra_info("peername")
-            client[addr] = {}
 
             msg = entry.decode()
             print(f"message receive from {addr} : {msg}")
 
-            if client[addr] == {}:
+            if not addr in client:
+                    client[addr] = {}
                     client[addr]['r'] = reader
                     client[addr]['w'] = writer
 
