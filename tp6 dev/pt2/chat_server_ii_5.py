@@ -3,40 +3,40 @@ import asyncio
 async def handle_client_msg(reader, writer):
     while True:
         
-            entry = await reader.read(1024)
+        entry = await reader.read(1024)
+        print(entry)
+
+        if entry == b'':
             print(entry)
+            return
 
-            if entry == b'':
-                print("\n\n\n\n")
-                return
+        addr = writer.get_extra_info("peername")
 
-            addr = writer.get_extra_info("peername")
+        msg = entry.decode()
+        print(f"message receive from {addr} : {msg}")
 
-            msg = entry.decode()
-            print(f"message receive from {addr} : {msg}")
+        if not addr in clients:
+                clients[addr] = {}
+                clients[addr]['r'] = reader
+                clients[addr]['w'] = writer
+                if "Hello|" in msg:
+                    pseudo = msg[6::]
+                    clients[addr]['pseudo'] = pseudo
+                    for key in clients:
+                        w = clients[key]["w"]
+                        w.write(f"\nAnnonce : {pseudo} a rejoint la chatroom".encode())
+                        await w.drain()
+                        # print(f"new client : {addr} with name : {pseudo} so {clients}")
+                        return None
 
-            if not addr in clients:
-                    clients[addr] = {}
-                    clients[addr]['r'] = reader
-                    clients[addr]['w'] = writer
-                    if "Hello|" in msg:
-                        pseudo = msg[6::]
-                        clients[addr]['pseudo'] = pseudo
-                        for key in clients:
-                            w = clients[key]["w"]
-                            w.write(f"\nAnnonce : {pseudo} a rejoint la chatroom".encode())
-                            await w.drain()
-                            # print(f"new client : {addr} with name : {pseudo} so {clients}")
-                            return None
-
-            for key in clients:
-                if key == addr:
-                    continue
-                else:
-                    print(f"sending to {key}")
-                    w = clients[key]["w"]
-                    w.write(f"{pseudo} a dit {msg}".encode())
-                    await w.drain()
+        for key in clients:
+            if key == addr:
+                continue
+            else:
+                print(f"sending to {key}")
+                w = clients[key]["w"]
+                w.write(f"{pseudo} a dit {msg}".encode())
+                await w.drain()
             #One Envoie la donné a tout le monde 
 
         # except Exception:
