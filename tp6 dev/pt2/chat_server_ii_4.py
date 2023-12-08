@@ -30,6 +30,7 @@ async def handle_client_msg(reader, writer):
                 print(f"sending to {key}")
                 w = client[key]["w"]
                 w.write(f"{addr} a dit {msg}".encode())
+                await w.drain()
         
         #One Envoie la donné a tout le monde 
 
