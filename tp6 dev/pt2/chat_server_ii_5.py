@@ -7,7 +7,7 @@ async def handle_client_msg(reader, writer):
             print(entry)
 
             if entry == b'':
-                return None
+                continue
 
             addr = writer.get_extra_info("peername")
 
@@ -26,7 +26,7 @@ async def handle_client_msg(reader, writer):
                             w.write(f"\n Annonce : {pseudo} a rejoint la chatroom".encode())
                             await w.drain()
                             print(f"new client : {addr} with name : {pseudo} so {clients}")
-                            return None
+                            continue
 
             for key in clients:
                 if key == addr:
