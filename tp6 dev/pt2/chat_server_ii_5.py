@@ -15,7 +15,7 @@ async def handle_client_msg(reader, writer):
                         w = clients[key]["w"]
                         w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
                         await w.drain()
-                        return
+                        return None
 
             addr = writer.get_extra_info("peername")
 
