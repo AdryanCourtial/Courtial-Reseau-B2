@@ -36,7 +36,7 @@ async def async_input(writer: asyncio.StreamWriter):
         Timestamp = datetime.datetime.today()
         Timestamp = Timestamp.strftime("%H:%M")
         msg = await aioconsole.ainput("")
-        print(f"{Timestamp} Vous Avez dit : {msg}")
+        print(f"[{Timestamp}] Vous Avez dit : {msg}")
         writer.write((msg.encode()))
         await writer.drain()
 
