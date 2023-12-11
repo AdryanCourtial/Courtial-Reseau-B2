@@ -40,7 +40,7 @@ async def handle_client_msg(reader, writer):
             color = clients[addr]['color']
 
             Timestamp = datetime.datetime.today()
-            Timestamp = Timestamp.strftime("%H:M")
+            Timestamp = Timestamp.strftime("%H:%M")
                                 
             if "Hello|" not in msg:
                 for key in clients:
