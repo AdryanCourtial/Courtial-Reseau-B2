@@ -36,3 +36,5 @@ async def async_receive(reader: asyncio.StreamReader):
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+#TPFINI (5 et 6)
