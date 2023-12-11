@@ -29,7 +29,7 @@ async def handle_client_msg(reader, writer):
                     if "Hello|" in msg:
                         pseudo = msg[6::]
                         clients[addr]['pseudo'] = pseudo
-                        clients[addr]['color'] = random.randint(30,37)
+                        clients[addr]['color'] = random.randint(30,37, 90 ,97)
                         for key in clients:
                             w = clients[key]["w"]
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom".encode())
