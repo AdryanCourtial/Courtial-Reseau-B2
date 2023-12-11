@@ -43,7 +43,7 @@ async def handle_client_msg(reader, writer):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.write(f"\033[1m{pseudo} a dit :    {msg}\033[0m".encode())
+                        w.write(f"\033[32m{pseudo} a dit :    {msg}\033[0m".encode())
                         await w.drain()
             #One Envoie la donné a tout le monde 
 
