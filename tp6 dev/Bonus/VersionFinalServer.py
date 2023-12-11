@@ -1,6 +1,18 @@
 import asyncio
 import random
 import datetime
+import configparser
+
+config_object = configparser.ConfigParser()
+
+config_object.read("config.ini")
+
+userinfo = config_object["SERVERCONFIG"]
+
+ip = userinfo["ipaddr"]
+port = userinfo["port"]
+
+
 
 async def handle_client_msg(reader, writer):
     while True:
@@ -16,7 +28,7 @@ async def handle_client_msg(reader, writer):
                     await w.drain()
                     del clients[addr]
                     print(clients)
-                    return None
+                return None
 
             addr = writer.get_extra_info("peername")
 
@@ -61,7 +73,7 @@ async def main():
     
     global clients
     clients = {}
-    server = await asyncio.start_server(handle_client_msg, "10.1.1.11", port=13337)
+    server = await asyncio.start_server(handle_client_msg, ip, port)
 
     addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
     print(f'Serving on {addrs}')
@@ -71,6 +83,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    print(ip, port)
     asyncio.run(main())
-
-#BONUS
