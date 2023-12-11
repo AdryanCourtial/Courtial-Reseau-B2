@@ -47,7 +47,7 @@ async def handle_client_msg(reader, writer):
                         w = clients[key]["w"]
                         w.write(f"\033[153m{pseudo} a dit :    {msg}\033[0m".encode())
                         await w.drain()
-                        print(f"\033[43m{pseudo} a dit :    {msg}\033[0m")
+                        print(f"\033[153m{pseudo} a dit :    {msg}\033[0m")
             #One Envoie la donné a tout le monde 
 
         except Exception:
