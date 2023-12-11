@@ -1,9 +1,16 @@
 import asyncio
 import __future__
 import aioconsole
+import argparse
 
-ip = "10.1.1.11"
-port = 13337  
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--ip", action="store", default="10.1.1.11")
+parser.add_argument("-p", "--port", action="store", default=13337)
+args = parser.parse_args()
+
+
+ip = args.ip
+port = args.port  
 
 async def main():
     reader, writer = await asyncio.open_connection(host=ip, port=port)
