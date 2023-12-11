@@ -12,6 +12,8 @@ args = parser.parse_args()
 ip = args.ip
 port = args.port  
 
+print(ip, port)
+
 async def main():
     reader, writer = await asyncio.open_connection(host=ip, port=port)
 
