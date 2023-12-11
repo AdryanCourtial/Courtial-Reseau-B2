@@ -1,6 +1,7 @@
 import asyncio
 import __future__
 import aioconsole
+import datetime
 
 ip = "10.1.1.11"
 port = 13337  
@@ -23,8 +24,10 @@ async def main():
 
 async def async_input(writer: asyncio.StreamWriter):
     while True:
+        Timestamp = datetime.datetime.today()
+        Timestamp = Timestamp.strftime("%H:%M")
         msg = await aioconsole.ainput("")
-        print(f"Vous Avez dit : {msg}")
+        print(f"{Timestamp} Vous Avez dit : {msg}")
         writer.write((msg.encode()))
         await writer.drain()
 
