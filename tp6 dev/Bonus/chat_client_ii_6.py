@@ -24,6 +24,7 @@ async def main():
 async def async_input(writer: asyncio.StreamWriter):
     while True:
         msg = await aioconsole.ainput("")
+        print(f"Vous Avez dit : {msg}")
         writer.write((msg.encode()))
         await writer.drain()
 
