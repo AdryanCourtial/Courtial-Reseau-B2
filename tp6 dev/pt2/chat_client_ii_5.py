@@ -32,7 +32,7 @@ async def async_receive(reader: asyncio.StreamReader):
         msg = await reader.read(1024)
         if msg == b'':
             break
-        print(msg.decode())
+        # print(msg.decode())
 
 if __name__ == "__main__":
     asyncio.run(main())
