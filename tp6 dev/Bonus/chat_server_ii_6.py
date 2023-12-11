@@ -5,13 +5,13 @@ import configparser
 
 config_object = configparser.ConfigParser()
 
-config_object["SERVERCONFIG"] = {
-    "PORT": 13337,
-    "IPADDR": "10.1.1.11"
-}
+config_object.read("config.ini")
 
-with open('config.ini', 'w') as conf:
-    config_object.write(conf)
+userinfo = config_object["SERVERCONFIG"]
+
+ip = userinfo["ipaddr"]
+port = userinfo["port"]
+
 
 
 async def handle_client_msg(reader, writer):
@@ -73,7 +73,7 @@ async def main():
     
     global clients
     clients = {}
-    server = await asyncio.start_server(handle_client_msg, "10.1.1.11", port=13337)
+    server = await asyncio.start_server(handle_client_msg, ip, port)
 
     addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
     print(f'Serving on {addrs}')
