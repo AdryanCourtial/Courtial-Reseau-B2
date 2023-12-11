@@ -1,6 +1,18 @@
 import asyncio
 import random
 import datetime
+import configparser
+
+config_object = configparser.ConfigParser()
+
+config_object["SERVERCONFIG"] = {
+    "PORT": 13337,
+    "IPADDR": "10.1.1.11"
+}
+
+with open('config.ini', 'w') as conf:
+    config_object.write(conf)
+
 
 async def handle_client_msg(reader, writer):
     while True:
