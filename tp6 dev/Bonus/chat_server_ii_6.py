@@ -26,7 +26,7 @@ async def handle_client_msg(reader, writer):
                     clients[addr] = {}
                     clients[addr]['r'] = reader
                     clients[addr]['w'] = writer
-                    clients[addr]['color'] = random.random(0, 255)
+                    # clients[addr]['color'] = random.random(0, 255)
                     if "Hello|" in msg:
                         pseudo = msg[6::]
                         clients[addr]['pseudo'] = pseudo
