@@ -16,7 +16,7 @@ async def handle_client_msg(reader, writer):
                     await w.drain()
                     del clients[addr]
                     print(clients)
-                return None
+                    return None
 
             addr = writer.get_extra_info("peername")
 
