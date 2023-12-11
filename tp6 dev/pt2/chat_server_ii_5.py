@@ -12,7 +12,7 @@ async def handle_client_msg(reader, writer):
                     w = clients[key]["w"]
                     w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
                     await w.drain()
-                    # del clients[addr]
+                    del clients[addr]
                     print(clients)
                 return None
 
