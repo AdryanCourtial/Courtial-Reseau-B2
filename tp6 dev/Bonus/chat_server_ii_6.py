@@ -30,6 +30,7 @@ async def handle_client_msg(reader, writer):
                         pseudo = msg[6::]
                         clients[addr]['pseudo'] = pseudo
                         clients[addr]['color'] = random.randint(1,255)
+                        print(clients[addr]['color'])
                         for key in clients:
                             w = clients[key]["w"]
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom".encode())
@@ -43,7 +44,7 @@ async def handle_client_msg(reader, writer):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.write(f"\033[32m{pseudo} a dit :    {msg}\033[0m".encode())
+                        w.write(f"\033[33m{pseudo} a dit :    {msg}\033[0m".encode())
                         await w.drain()
             #One Envoie la donné a tout le monde 
 
