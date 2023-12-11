@@ -1,5 +1,6 @@
 import asyncio
 import random
+import datetime
 
 async def handle_client_msg(reader, writer):
     while True:
@@ -37,6 +38,9 @@ async def handle_client_msg(reader, writer):
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
             color = clients[addr]['color']
+
+            Timestamp = datetime.datetime.today()
+            Timestamp = Timestamp.strftime("%H:M")
                                 
             if "Hello|" not in msg:
                 for key in clients:
@@ -45,9 +49,9 @@ async def handle_client_msg(reader, writer):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.write(f"\033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
+                        w.write(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
                         await w.drain()
-                        print(f"\033[{color}m{pseudo}\033[0m a dit :    {msg}")
+                        print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
 
         except Exception:
