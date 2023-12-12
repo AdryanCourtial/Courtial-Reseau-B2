@@ -30,7 +30,7 @@ async def handle_client_msg(reader, writer):
                     print(f"deco de {pseudo}")
                     w = clients[key]["w"]
                     w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
-                    logging.debug(f"\n            {pseudo} C DECONNECTER \n")
+                    logging.debug(f"           {pseudo} C DECONNECTER \n")
                     await w.drain()
                     del clients[addr]
                     print(clients)
@@ -54,7 +54,7 @@ async def handle_client_msg(reader, writer):
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n".encode())
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
-                            logging.debug(f"\nnew client : {addr} with name : {pseudo}")
+                            logging.debug(f"new client : {addr} with name : {pseudo}")
                             
             
             color = clients[addr]['color']
