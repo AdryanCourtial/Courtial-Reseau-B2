@@ -54,7 +54,7 @@ async def handle_client_msg(reader, writer):
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n".encode())
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
-                            logging.debug(f"\nnew client : {addr} with name : {pseudo} so {clients}")
+                            logging.debug(f"\nnew client : {addr} with name : {pseudo}")
                             
             
             color = clients[addr]['color']
