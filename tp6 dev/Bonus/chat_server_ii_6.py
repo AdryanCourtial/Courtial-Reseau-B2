@@ -3,6 +3,7 @@ import random
 import datetime
 import configparser
 import logging
+import os
 
 #FICHIR DE CONF
 config_object = configparser.ConfigParser()
@@ -14,6 +15,7 @@ userinfo = config_object["SERVERCONFIG"]
 ip = userinfo["ipaddr"]
 port = userinfo["port"]
 
+os.mkdir("/var/log/chat_room")
 logging.basicConfig(level=logging.info, filename="/var/log/chat_room/server.log", filemode="w",
                     format="%(asctimes)s : %(levelname)s : %(message)s")
 
