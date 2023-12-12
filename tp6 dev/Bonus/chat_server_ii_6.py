@@ -2,7 +2,9 @@ import asyncio
 import random
 import datetime
 import configparser
+import logging
 
+#FICHIR DE CONF
 config_object = configparser.ConfigParser()
 
 config_object.read("config.ini")
@@ -12,6 +14,8 @@ userinfo = config_object["SERVERCONFIG"]
 ip = userinfo["ipaddr"]
 port = userinfo["port"]
 
+logging.basicConfig(level=logging.info, filename="/var/log/chat_room/server.log", filemode="w",
+                    format="%(asctimes)s : %(levelname)s : %(message)s")
 
 
 async def handle_client_msg(reader, writer):
@@ -23,6 +27,7 @@ async def handle_client_msg(reader, writer):
             if entry == b'':
                 for key in clients:
                     print(f"deco de {pseudo}")
+                    logging.info(f"deco de {pseudo}")
                     w = clients[key]["w"]
                     w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
                     await w.drain()
@@ -46,8 +51,10 @@ async def handle_client_msg(reader, writer):
                         for key in clients:
                             w = clients[key]["w"]
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom".encode())
+                            logging.INFO(f"\n    Annonce : {pseudo} a rejoint la chatroom")
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
+                            logging.INFO(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
             color = clients[addr]['color']
 
@@ -62,11 +69,13 @@ async def handle_client_msg(reader, writer):
                         print(f"sending to {key}")
                         w = clients[key]["w"]
                         w.write(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
+                        logging.INFO(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}")
                         await w.drain()
                         print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
 
-        except Exception:
+        except Exception as e:
+            logging.exception("Erreur Conexion")
             return Exception
 
 async def main():
