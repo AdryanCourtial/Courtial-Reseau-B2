@@ -2,6 +2,8 @@ import asyncio
 import random
 import datetime
 import configparser
+import logging
+
 
 config_object = configparser.ConfigParser()
 
@@ -12,6 +14,8 @@ userinfo = config_object["SERVERCONFIG"]
 ip = userinfo["ipaddr"]
 port = userinfo["port"]
 
+
+logging.basicConfig(filename="server.log")
 
 
 async def handle_client_msg(reader, writer):
