@@ -4,7 +4,6 @@ import aioconsole
 import argparse
 import datetime
 import logging
-import os
 
 
 parser = argparse.ArgumentParser()
@@ -34,6 +33,7 @@ async def main():
             await asyncio.gather(*tasks)
 
         except Exception: 
+            logging.exception("Exept")
             raise Exception
         
 
