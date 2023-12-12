@@ -30,6 +30,7 @@ async def handle_client_msg(reader, writer):
                     print(f"deco de {pseudo}")
                     w = clients[key]["w"]
                     w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
+                    logging.debug(f"\n            {pseudo} C DECONNECTER \n")
                     await w.drain()
                     del clients[addr]
                     print(clients)
@@ -53,6 +54,8 @@ async def handle_client_msg(reader, writer):
                             w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n".encode())
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
+                            logging.debug(f"\nnew client : {addr} with name : {pseudo} so {clients}")
+                            
             
             color = clients[addr]['color']
 
@@ -69,6 +72,7 @@ async def handle_client_msg(reader, writer):
                         w.write(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
                         await w.drain()
                         print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
+                        logging.debug(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
 
         except Exception:
