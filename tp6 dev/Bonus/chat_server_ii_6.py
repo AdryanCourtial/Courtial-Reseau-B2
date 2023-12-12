@@ -15,7 +15,6 @@ userinfo = config_object["SERVERCONFIG"]
 ip = userinfo["ipaddr"]
 port = userinfo["port"]
 
-os.mkdir("log")
 logging.basicConfig(level=logging.info, filename="/log/server.log", filemode="w",
                     format="%(asctimes)s : %(levelname)s : %(message)s")
 
