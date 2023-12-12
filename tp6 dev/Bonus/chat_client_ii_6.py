@@ -53,7 +53,7 @@ async def async_receive(reader: asyncio.StreamReader):
         if msg == b'':
             break
         print(msg.decode())
-        logging.INFO(msg.decode())
+        logging.INFO(f"{msg.decode()}")
 
 if __name__ == "__main__":
     asyncio.run(main())
