@@ -1,3 +1,4 @@
+import __future__
 import asyncio
 import __future__
 import aioconsole
