@@ -1,19 +1,13 @@
-import __future__
 import asyncio
 import __future__
 import aioconsole
 import argparse
 import datetime
-import logging
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--ip", action="store", default="10.1.1.11")
 parser.add_argument("-p", "--port", action="store", default=13337)
 args = parser.parse_args()
-
-logging.basicConfig(level=logging.INFO, filename="client.log", filemode="w",
-                    format="%(asctime)s : %(levelname)s : %(message)s")
 
 
 ip = args.ip
@@ -34,7 +28,6 @@ async def main():
             await asyncio.gather(*tasks)
 
         except Exception: 
-            logging.exception("Exept")
             raise Exception
         
 
@@ -43,8 +36,7 @@ async def async_input(writer: asyncio.StreamWriter):
         Timestamp = datetime.datetime.today()
         Timestamp = Timestamp.strftime("%H:%M")
         msg = await aioconsole.ainput("")
-        print(f"[{Timestamp}] Vous Avez dit : {msg}")
-        logging.INFO(f"[{Timestamp}] Vous Avez dit : {msg}")
+        print(f"[{Timestamp}] Vous Avez dit :   {msg}")
         writer.write((msg.encode()))
         await writer.drain()
 
@@ -54,7 +46,6 @@ async def async_receive(reader: asyncio.StreamReader):
         if msg == b'':
             break
         print(msg.decode())
-        logging.INFO(f"{msg.decode()}")
 
 if __name__ == "__main__":
     asyncio.run(main())
