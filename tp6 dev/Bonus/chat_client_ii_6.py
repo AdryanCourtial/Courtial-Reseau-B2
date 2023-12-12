@@ -12,7 +12,7 @@ parser.add_argument("-p", "--port", action="store", default=13337)
 args = parser.parse_args()
 
 logging.basicConfig(level=logging.INFO, filename="client.log", filemode="w",
-                    format="%(asctimes)s : %(levelname)s : %(message)s")
+                    format="%(asctime)s : %(levelname)s : %(message)s")
 
 
 ip = args.ip
