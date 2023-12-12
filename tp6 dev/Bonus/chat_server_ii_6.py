@@ -15,7 +15,8 @@ ip = userinfo["ipaddr"]
 port = userinfo["port"]
 
 
-logging.basicConfig(filename="server.log")
+logging.basicConfig(filename="server.log", level=logging.DEBUG,
+                    format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 async def handle_client_msg(reader, writer):
