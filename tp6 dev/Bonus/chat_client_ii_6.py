@@ -12,8 +12,8 @@ parser.add_argument("-i", "--ip", action="store", default="10.1.1.11")
 parser.add_argument("-p", "--port", action="store", default=13337)
 args = parser.parse_args()
 
-os.mkdir("/var/log/chat_room")
-logging.basicConfig(level=logging.info, filename="/var/log/chat_room/client.log", filemode="w",
+os.mkdir("./log")
+logging.basicConfig(level=logging.info, filename="./log/client.log", filemode="w",
                     format="%(asctimes)s : %(levelname)s : %(message)s")
 
 
