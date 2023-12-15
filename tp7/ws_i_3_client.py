@@ -1,5 +1,5 @@
-import asyncio
 import __future__
+import asyncio
 import aioconsole
 import argparse
 import datetime
