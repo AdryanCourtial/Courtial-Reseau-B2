@@ -4,14 +4,14 @@ import datetime
 import configparser
 import websockets
 
-config_object = configparser.ConfigParser()
+# config_object = configparser.ConfigParser()
 
-config_object.read("config.ini")
+# config_object.read("config.ini")
 
-userinfo = config_object["SERVERCONFIG"]
+# userinfo = config_object["SERVERCONFIG"]
 
-ip = userinfo["ipaddr"]
-port = userinfo["port"]
+# ip = userinfo["ipaddr"]
+# port = userinfo["port"]
 
 
 
