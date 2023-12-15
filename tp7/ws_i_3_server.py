@@ -18,14 +18,14 @@ import websockets
 async def handle_client_msg(websocket):
     while True:
         try:
-            entry = await websocket.read(1024)
+            entry = await websocket.recv(1024)
             print(entry)
 
             if entry == b'':
                 for key in clients:
                     print(f"deco de {pseudo}")
                     w = clients[key]["w"]
-                    w.write(f"\n            {pseudo} C DECONNECTER \n".encode())
+                    w.send(f"\n            {pseudo} C DECONNECTER \n".encode())
                     await w.drain()
                     del clients[addr]
                     print(clients)
@@ -61,7 +61,7 @@ async def handle_client_msg(websocket):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.write(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
+                        w.send(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
                         await w.drain()
                         print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
