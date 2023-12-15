@@ -5,7 +5,7 @@ async def hello(websocket):
     data = await websockets.recv()
     print(f"<<< {data}")
     greeting = f"Hello client ! Received {data}!"
-    await websocket.send(greeting)
+    await websockets.send(greeting)
 
 
 async def main():
