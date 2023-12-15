@@ -32,7 +32,7 @@ async def main():
                 raise Exception
         
 
-async def async_input(websocket:websockets):
+async def async_input(websocket):
     while True:
         Timestamp = datetime.datetime.today()
         Timestamp = Timestamp.strftime("%H:%M")
@@ -40,7 +40,7 @@ async def async_input(websocket:websockets):
         print(f"[{Timestamp}] Vous Avez dit :   {msg}")
         await websocket.send(msg)
 
-async def async_receive(websocket:websockets):
+async def async_receive(websocket):
     while True:
         msg = await websocket.recv()
         if msg == b'':

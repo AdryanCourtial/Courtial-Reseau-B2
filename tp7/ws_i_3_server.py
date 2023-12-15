@@ -70,7 +70,7 @@ async def main():
     
     global clients
     clients = {}
-    async with websockets.serve(handle_client_msg, "ws://10.1.1.11", 13337):
+    async with websockets.serve(handle_client_msg, "10.1.1.11", 13337):
         await asyncio.Future()  # run forever
 
 
