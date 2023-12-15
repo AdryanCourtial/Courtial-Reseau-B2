@@ -18,7 +18,7 @@ import websockets
 async def handle_client_msg(websocket):
     while True:
         try:
-            entry = await websocket.recv(1024)
+            entry = await websocket.recv()
             print(entry)
 
             if entry == b'':
