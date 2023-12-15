@@ -44,7 +44,7 @@ async def async_input(websocket:websockets):
 
 async def async_receive(websocket:websockets):
     while True:
-        msg = await websocket.recv(1024)
+        msg = await websocket.recv()
         if msg == b'':
             break
         print(msg.decode())
