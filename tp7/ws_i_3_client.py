@@ -27,8 +27,8 @@ async def main():
 
         while True:
             try:
-                tasks = [ async_input(websocket), async_receive(websocket) ]
-                await asyncio.gather(*tasks)
+                tasks = asyncio.create_task(async_input(websocket), async_receive(websocket))
+                await tasks
 
             except Exception: 
                 raise Exception
