@@ -21,7 +21,7 @@ async def main():
     async with websockets.connect(uri) as websocket:
 
         pseudo = input("Choisi ton nom d'utilisateur : ")
-        websocket.send(f"Hello|{pseudo}".encode())
+        websocket.send(f"Hello|{pseudo}"())
         await websocket.drain()
 
         while True:
@@ -47,7 +47,7 @@ async def async_receive(websocket:websockets):
         msg = await websocket.recv()
         if msg == b'':
             break
-        print(msg.decode())
+        print(msg)
 
 if __name__ == "__main__":
     asyncio.run(main())

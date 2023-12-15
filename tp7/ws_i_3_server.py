@@ -1,7 +1,7 @@
 import asyncio
 import random
 import datetime
-import configparser
+# import configparser
 import websockets
 
 # config_object = configparser.ConfigParser()
@@ -25,7 +25,7 @@ async def handle_client_msg(websocket):
                 for key in clients:
                     print(f"deco de {pseudo}")
                     # w = clients[key]["w"]
-                    w.send(f"\n            {pseudo} C DECONNECTER \n".encode())
+                    w.send(f"\n            {pseudo} C DECONNECTER \n")
                     await w.drain()
                     del clients[addr]
                     print(clients)
@@ -33,7 +33,7 @@ async def handle_client_msg(websocket):
 
             addr = websocket.get_extra_info("peername")
 
-            msg = entry.decode()
+            msg = entry()
             print(f"message receive from {addr} : {msg}")
 
             if not addr in clients:
@@ -45,7 +45,7 @@ async def handle_client_msg(websocket):
                         clients[addr]['color'] = random.randint(90,97)
                         for key in clients:
                             w = clients[key]["w"]
-                            w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n".encode())
+                            w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
                             await w.drain()
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
@@ -61,7 +61,7 @@ async def handle_client_msg(websocket):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.send(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}".encode())
+                        w.send(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}")
                         await w.drain()
                         print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
