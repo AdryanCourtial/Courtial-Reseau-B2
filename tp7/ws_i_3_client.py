@@ -20,15 +20,13 @@ async def main():
     uri = "ws://10.1.1.11:13337"
     async with websockets.connect(uri) as websocket:
 
-        websocket.recv()
-
         pseudo = input("Choisi ton nom d'utilisateur : ")
         await websocket.send(f"Hello|{pseudo}")
 
         while True:
             try:
-                tasks = asyncio.create_task(async_input(websocket), async_receive(websocket))
-                await tasks
+                tasks = [ async_input(websocket), async_receive(websocket) ]
+                await asyncio.gather(*tasks)
 
             except Exception: 
                 raise Exception
