@@ -21,8 +21,7 @@ async def main():
     async with websockets.connect(uri) as websocket:
 
         pseudo = input("Choisi ton nom d'utilisateur : ")
-        websocket.send(f"Hello|{pseudo}"())
-        await websocket.drain()
+        await websocket.send(f"Hello|{pseudo}")
 
         while True:
             try:
@@ -39,8 +38,7 @@ async def async_input(websocket:websockets):
         Timestamp = Timestamp.strftime("%H:%M")
         msg = await aioconsole.ainput("")
         print(f"[{Timestamp}] Vous Avez dit :   {msg}")
-        websocket.send((msg.encode()))
-        await websocket.drain()
+        await websocket.send(msg)
 
 async def async_receive(websocket:websockets):
     while True:

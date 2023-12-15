@@ -25,8 +25,7 @@ async def handle_client_msg(websocket):
                 for key in clients:
                     print(f"deco de {pseudo}")
                     # w = clients[key]["w"]
-                    w.send(f"\n            {pseudo} C DECONNECTER \n")
-                    await w.drain()
+                    await w.send(f"\n            {pseudo} C DECONNECTER \n")
                     del clients[addr]
                     print(clients)
                 return None
@@ -45,8 +44,7 @@ async def handle_client_msg(websocket):
                         clients[addr]['color'] = random.randint(90,97)
                         for key in clients:
                             w = clients[key]["w"]
-                            w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
-                            await w.drain()
+                            await w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
             color = clients[addr]['color']
@@ -61,8 +59,7 @@ async def handle_client_msg(websocket):
                     else:
                         print(f"sending to {key}")
                         w = clients[key]["w"]
-                        w.send(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}")
-                        await w.drain()
+                        await w.send(f"[{Timestamp}] \033[{color}m{pseudo}\033[0m a dit :    {msg}")
                         print(f"[{Timestamp} ]\033[{color}m{pseudo}\033[0m a dit :    {msg}")
             #One Envoie la donné a tout le monde 
 
