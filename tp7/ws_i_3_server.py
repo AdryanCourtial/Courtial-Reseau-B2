@@ -15,10 +15,10 @@ port = userinfo["port"]
 
 
 
-async def handle_client_msg(reader, writer):
+async def handle_client_msg(websocket):
     while True:
         try:
-            entry = await reader.read(1024)
+            entry = await websocket.read(1024)
             print(entry)
 
             if entry == b'':
@@ -31,15 +31,14 @@ async def handle_client_msg(reader, writer):
                     print(clients)
                 return None
 
-            addr = writer.get_extra_info("peername")
+            addr = websocket.get_extra_info("peername")
 
             msg = entry.decode()
             print(f"message receive from {addr} : {msg}")
 
             if not addr in clients:
                     clients[addr] = {}
-                    clients[addr]['r'] = reader
-                    clients[addr]['w'] = writer
+                    clients[addr]['w'] = websocket
                     if "Hello|" in msg:
                         pseudo = msg[6::]
                         clients[addr]['pseudo'] = pseudo
@@ -74,13 +73,8 @@ async def main():
     
     global clients
     clients = {}
-    server = await asyncio.start_server(handle_client_msg, ip, port)
-
-    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
-    print(f'Serving on {addrs}')
-
-    async with server:
-        await server.serve_forever()
+    async with websockets.serve(handle_client_msg, "10.1.1.11", 13337):
+        await asyncio.Future()  # run forever
 
 
 if __name__ == "__main__":
