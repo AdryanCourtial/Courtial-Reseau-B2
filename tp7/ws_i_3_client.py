@@ -20,6 +20,8 @@ async def main():
     uri = "ws://10.1.1.11:13337"
     async with websockets.connect(uri) as websocket:
 
+        websocket.recv()
+
         pseudo = input("Choisi ton nom d'utilisateur : ")
         await websocket.send(f"Hello|{pseudo}")
 
