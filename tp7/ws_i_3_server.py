@@ -24,7 +24,7 @@ async def handle_client_msg(websocket):
             if entry == b'':
                 for key in clients:
                     print(f"deco de {pseudo}")
-                    w = clients[key]["w"]
+                    # w = clients[key]["w"]
                     w.send(f"\n            {pseudo} C DECONNECTER \n".encode())
                     await w.drain()
                     del clients[addr]
