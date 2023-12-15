@@ -78,5 +78,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    print(ip, port)
     asyncio.run(main())
