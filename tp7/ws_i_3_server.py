@@ -25,7 +25,7 @@ async def handle_client_msg(websocket):
                 for key in clients:
                     print(f"deco de {pseudo}")
                     # w = clients[key]["w"]
-                    await w.send(f"\n            {pseudo} C DECONNECTER \n")
+                    await websocket.send(f"\n            {pseudo} C DECONNECTER \n")
                     del clients[addr]
                     print(clients)
                 return None
@@ -44,7 +44,7 @@ async def handle_client_msg(websocket):
                         clients[addr]['color'] = random.randint(90,97)
                         for key in clients:
                             w = clients[key]["w"]
-                            await w.send(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
+                            await websocket.send(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
             color = clients[addr]['color']
