@@ -41,10 +41,16 @@ async def async_input(websocket):
 
 async def async_receive(websocket):
     while True:
-        msg = await websocket.recv()
-        if msg == b'':
+        try:
+            msg = await websocket.recv()
+            if not msg:
+                break  # La connexion a été fermée
+            print(msg)
+        except websockets.exceptions.ConnectionClosedOK:
+            print("La connexion WebSocket a été fermée normalement.")
             break
-        print(msg)
+        except Exception as e:
+            print(f"Une erreur s'est produite : {e}")
 
 if __name__ == "__main__":
     asyncio.run(main())
