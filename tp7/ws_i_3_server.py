@@ -32,7 +32,7 @@ async def handle_client_msg(websocket):
 
             addr = websocket.get_extra_info("peername")
 
-            msg = entry()
+            msg = entry
             print(f"message receive from {addr} : {msg}")
 
             if not addr in clients:
@@ -44,7 +44,7 @@ async def handle_client_msg(websocket):
                         clients[addr]['color'] = random.randint(90,97)
                         for key in clients:
                             w = clients[key]["w"]
-                            await w.write(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
+                            await w.send(f"\n    Annonce : {pseudo} a rejoint la chatroom\n")
                             print(f"\nnew client : {addr} with name : {pseudo} so {clients}")
             
             color = clients[addr]['color']
